@@ -2,7 +2,7 @@
 <div align="center">Built with the Next.js App Router</div>
 <br />
 <div align="center">
-<a href="https://next-admin-dash.vercel.app/">Demo</a>
+<a href="https://proto-shop-five.vercel.app/">Demo</a>
 <span> · </span>
 <a href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs">Clone & Deploy</a>
 <span>
