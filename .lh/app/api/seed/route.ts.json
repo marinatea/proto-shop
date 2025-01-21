@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/api/seed/route.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1737484307568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1737484307568,
+            "name": "Commit-0",
+            "content": "import { db, products } from 'lib/db';\n\nexport const dynamic = 'force-dynamic';\n\nexport async function GET() {\n  // return Response.json({\n  //   message: 'Uncomment to seed data after DB is set up.'\n  // });\n\n  await db.insert(products).values([\n    {\n      id: 1,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/smartphone-gaPvyZW6aww0IhD3dOpaU6gBGILtcJ.webp',\n      name: 'Smartphone X Pro',\n      status: 'active',\n      price: '999.00',\n      stock: 150,\n      availableAt: new Date()\n    },\n    {\n      id: 2,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/earbuds-3rew4JGdIK81KNlR8Edr8NBBhFTOtX.webp',\n      name: 'Wireless Earbuds Ultra',\n      status: 'active',\n      price: '199.00',\n      stock: 300,\n      availableAt: new Date()\n    },\n    {\n      id: 3,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/home-iTeNnmKSMnrykOS9IYyJvnLFgap7Vw.webp',\n      name: 'Smart Home Hub',\n      status: 'active',\n      price: '149.00',\n      stock: 200,\n      availableAt: new Date()\n    },\n    {\n      id: 4,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/tv-H4l26crxtm9EQHLWc0ddrsXZ0V0Ofw.webp',\n      name: '4K Ultra HD Smart TV',\n      status: 'active',\n      price: '799.00',\n      stock: 50,\n      availableAt: new Date()\n    },\n    {\n      id: 5,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/laptop-9bgUhjY491hkxiMDeSgqb9R5I3lHNL.webp',\n      name: 'Gaming Laptop Pro',\n      status: 'active',\n      price: '1299.00',\n      stock: 75,\n      availableAt: new Date()\n    },\n    {\n      id: 6,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/headset-lYnRnpjDbZkB78lS7nnqEJFYFAUDg6.webp',\n      name: 'VR Headset Plus',\n      status: 'active',\n      price: '349.00',\n      stock: 120,\n      availableAt: new Date()\n    },\n    {\n      id: 7,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/watch-S2VeARK6sEM9QFg4yNQNjHFaHc3sXv.webp',\n      name: 'Smartwatch Elite',\n      status: 'active',\n      price: '249.00',\n      stock: 250,\n      availableAt: new Date()\n    },\n    {\n      id: 8,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/speaker-4Zk0Ctx5AvxnwNNTFWVK4Gtpru4YEf.webp',\n      name: 'Bluetooth Speaker Max',\n      status: 'active',\n      price: '99.00',\n      stock: 400,\n      availableAt: new Date()\n    },\n    {\n      id: 9,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/charger-GzRr0NSkCj0ZYWkTMvxXGZQu47w9r5.webp',\n      name: 'Portable Charger Super',\n      status: 'active',\n      price: '59.00',\n      stock: 500,\n      availableAt: new Date()\n    },\n    {\n      id: 10,\n      imageUrl:\n        'https://uwja77bygk2kgfqe.public.blob.vercel-storage.com/thermostat-8GnK2LDE3lZAjUVtiBk61RrSuqSTF7.webp',\n      name: 'Smart Thermostat Pro',\n      status: 'active',\n      price: '199.00',\n      stock: 175,\n      availableAt: new Date()\n    }\n  ]);\n\n  return Response.json({\n    message: 'Data seeded successfully!'\n  });\n}\n"
+        }
+    ]
+}
