@@ -1,0 +1,86 @@
+{
+    "sourceFile": "app/(dashboard)/analytics/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1737989815525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737989823231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   CardHeader,\n   CardTitle\n } from '@/components/ui/card';\n \n-export default function CustomersPage() {\n+export default function APage() {\n   return (\n     <Card>\n       <CardHeader>\n         <CardTitle>Customers</CardTitle>\n"
+                },
+                {
+                    "date": 1737989834732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,15 +5,15 @@\n   CardHeader,\n   CardTitle\n } from '@/components/ui/card';\n \n-export default function APage() {\n+export default function AnalyticsPage() {\n   return (\n-    <Card>\n+    <>\n       <CardHeader>\n         <CardTitle>Customers</CardTitle>\n         <CardDescription>View all customers and their orders.</CardDescription>\n       </CardHeader>\n       <CardContent></CardContent>\n-    </Card>\n+    </>\n   );\n }\n"
+                },
+                {
+                    "date": 1737989840266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,6 @@\n   CardTitle\n } from '@/components/ui/card';\n \n export default function AnalyticsPage() {\n-  return (\n-    <>\n-      <CardHeader>\n-        <CardTitle>Customers</CardTitle>\n-        <CardDescription>View all customers and their orders.</CardDescription>\n-      </CardHeader>\n-      <CardContent></CardContent>\n-    </>\n-  );\n+  return <></>;\n }\n"
+                },
+                {
+                    "date": 1737989847569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,5 @@\n-import {\n-  Card,\n-  CardContent,\n-  CardDescription,\n-  CardHeader,\n-  CardTitle\n-} from '@/components/ui/card';\n \n+\n export default function AnalyticsPage() {\n   return <></>;\n }\n"
+                },
+                {
+                    "date": 1737990883000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,19 @@\n+import {\n+  Card,\n+  CardContent,\n+  CardDescription,\n+  CardHeader,\n+  CardTitle\n+} from '@/components/ui/card';\n \n-\n-export default function AnalyticsPage() {\n-  return <></>;\n+export default function CustomersPage() {\n+  return (\n+    <Card>\n+      <CardHeader>\n+        <CardTitle>Customers</CardTitle>\n+        <CardDescription>View all customers and their orders.</CardDescription>\n+      </CardHeader>\n+      <CardContent></CardContent>\n+    </Card>\n+  );\n }\n"
+                },
+                {
+                    "date": 1737990889598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import {\n-  Card,\n+  Analytics,\n   CardContent,\n   CardDescription,\n   CardHeader,\n   CardTitle\n"
+                },
+                {
+                    "date": 1737990909720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   CardContent,\n   CardDescription,\n   CardHeader,\n   CardTitle\n-} from '@/components/ui/card';\n+} from '@/components/ui/anal';\n \n export default function CustomersPage() {\n   return (\n     <Card>\n"
+                },
+                {
+                    "date": 1737990917337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import {\n   Analytics,\n-  CardContent,\n+  AnalyticsContent,\n   CardDescription,\n   CardHeader,\n   CardTitle\n-} from '@/components/ui/anal';\n+} from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n     <Card>\n"
+                },
+                {
+                    "date": 1737990924149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import {\n   Analytics,\n   AnalyticsContent,\n-  CardDescription,\n-  CardHeader,\n-  CardTitle\n+  AnalyticsDescription,\n+  AnalyticsHeader,\n+  AnalyticsTitle\n } from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n"
+                },
+                {
+                    "date": 1737990931143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,19 @@\n import {\n   Analytics,\n-  AnalyticsContent,\n+  Analytics,\n   AnalyticsDescription,\n   AnalyticsHeader,\n   AnalyticsTitle\n } from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n-    <Card>\n+    <Analytics>\n       <CardHeader>\n         <CardTitle>Customers</CardTitle>\n         <CardDescription>View all customers and their orders.</CardDescription>\n       </CardHeader>\n       <CardContent></CardContent>\n-    </Card>\n+    </Analytics>\n   );\n }\n"
+                },
+                {
+                    "date": 1737990937218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import {\n   Analytics,\n-  Analytics,\n+  AnalyticsContent,\n   AnalyticsDescription,\n   AnalyticsHeader,\n   AnalyticsTitle\n } from '@/components/ui/analytics';\n@@ -12,8 +12,8 @@\n       <CardHeader>\n         <CardTitle>Customers</CardTitle>\n         <CardDescription>View all customers and their orders.</CardDescription>\n       </CardHeader>\n-      <CardContent></CardContent>\n+      <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n   );\n }\n"
+                },
+                {
+                    "date": 1737990946639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   return (\n     <Analytics>\n       <CardHeader>\n         <CardTitle>Customers</CardTitle>\n-        <CardDescription>View all customers and their orders.</CardDescription>\n+        <AnalyticsDescription>View all customers and their orders.</AnalyticsDescription>\n       </CardHeader>\n       <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n   );\n"
+                },
+                {
+                    "date": 1737990954544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,18 +2,18 @@\n   Analytics,\n   AnalyticsContent,\n   AnalyticsDescription,\n   AnalyticsHeader,\n-  AnalyticsTitle\n+  AnalyticsHeader\n } from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n     <Analytics>\n-      <CardHeader>\n+      <AnalyticsHeader>\n         <CardTitle>Customers</CardTitle>\n         <AnalyticsDescription>View all customers and their orders.</AnalyticsDescription>\n-      </CardHeader>\n+      </AnalyticsHeader>\n       <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n   );\n }\n"
+                },
+                {
+                    "date": 1737990959964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,17 +2,19 @@\n   Analytics,\n   AnalyticsContent,\n   AnalyticsDescription,\n   AnalyticsHeader,\n-  AnalyticsHeader\n+  AnalyticsTitle\n } from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n     <Analytics>\n       <AnalyticsHeader>\n-        <CardTitle>Customers</CardTitle>\n-        <AnalyticsDescription>View all customers and their orders.</AnalyticsDescription>\n+        <AnalyticsTitle>Customers</AnalyticsTitle>\n+        <AnalyticsDescription>\n+          View all customers and their orders.\n+        </AnalyticsDescription>\n       </AnalyticsHeader>\n       <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n   );\n"
+                },
+                {
+                    "date": 1737990965083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export default function CustomersPage() {\n   return (\n     <Analytics>\n       <AnalyticsHeader>\n-        <AnalyticsTitle>Customers</AnalyticsTitle>\n+        <AnalyticsTitle>Ana</AnalyticsTitle>\n         <AnalyticsDescription>\n           View all customers and their orders.\n         </AnalyticsDescription>\n       </AnalyticsHeader>\n"
+                },
+                {
+                    "date": 1737990978959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n export default function CustomersPage() {\n   return (\n     <Analytics>\n       <AnalyticsHeader>\n-        <AnalyticsTitle>Ana</AnalyticsTitle>\n+        <AnalyticsTitle>Analytics</AnalyticsTitle>\n         <AnalyticsDescription>\n-          View all customers and their orders.\n+          View Analytics.\n         </AnalyticsDescription>\n       </AnalyticsHeader>\n       <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n"
+                },
+                {
+                    "date": 1737990987267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n   return (\n     <Analytics>\n       <AnalyticsHeader>\n         <AnalyticsTitle>Analytics</AnalyticsTitle>\n-        <AnalyticsDescription>\n-          View Analytics.\n-        </AnalyticsDescription>\n+        <AnalyticsDescription>View analytics.</AnalyticsDescription>\n       </AnalyticsHeader>\n       <AnalyticsContent></AnalyticsContent>\n     </Analytics>\n   );\n"
+                }
+            ],
+            "date": 1737989815525,
+            "name": "Commit-0",
+            "content": "import {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle\n} from '@/components/ui/card';\n\nexport default function CustomersPage() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Customers</CardTitle>\n        <CardDescription>View all customers and their orders.</CardDescription>\n      </CardHeader>\n      <CardContent></CardContent>\n    </Card>\n  );\n}\n"
+        }
+    ]
+}

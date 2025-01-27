@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/(dashboard)/settings/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1737989886462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737989892195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export default function AnalyticsPage() {\n+export default function SettingsPage() {\n   return <></>;\n }\n"
+                }
+            ],
+            "date": 1737989886462,
+            "name": "Commit-0",
+            "content": "export default function AnalyticsPage() {\n  return <></>;\n}\n"
+        }
+    ]
+}

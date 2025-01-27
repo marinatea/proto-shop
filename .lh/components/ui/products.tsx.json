@@ -1,0 +1,54 @@
+{
+    "sourceFile": "components/ui/products.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1737991126391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737991132936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { cn } from '@/lib/utils';\n import React from 'react';\n \n-const Analytics = React.forwardRef<\n+const Products = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n"
+                },
+                {
+                    "date": 1737991138248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     )}\n     {...props}\n   />\n ));\n-Analytics.displayName = 'Card';\n+Products.displayName = 'Card';\n \n const AnalyticsHeader = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n"
+                },
+                {
+                    "date": 1737991145696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   />\n ));\n Products.displayName = 'Card';\n \n-const AnalyticsHeader = React.forwardRef<\n+const ProductsHeader = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n@@ -25,9 +25,9 @@\n     className={cn('flex flex-col space-y-1.5 p-6', className)}\n     {...props}\n   />\n ));\n-AnalyticsHeader.displayName = 'CardHeader';\n+ProductsHeader.displayName = 'CardHeader';\n \n const AnalyticsTitle = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLHeadingElement>\n"
+                },
+                {
+                    "date": 1737991152420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   />\n ));\n ProductsHeader.displayName = 'CardHeader';\n \n-const AnalyticsTitle = React.forwardRef<\n+const ProductsTitle = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLHeadingElement>\n >(({ className, ...props }, ref) => (\n   <h3\n@@ -40,9 +40,9 @@\n     )}\n     {...props}\n   />\n ));\n-AnalyticsTitle.displayName = 'CardTitle';\n+ProductsTitle.displayName = 'CardTitle';\n \n const AnalyticsDescription = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLParagraphElement>\n"
+                },
+                {
+                    "date": 1737991158716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   />\n ));\n ProductsTitle.displayName = 'CardTitle';\n \n-const AnalyticsDescription = React.forwardRef<\n+const ProductsDescription = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLParagraphElement>\n >(({ className, ...props }, ref) => (\n   <p\n@@ -52,9 +52,9 @@\n     className={cn('text-sm text-muted-foreground', className)}\n     {...props}\n   />\n ));\n-AnalyticsDescription.displayName = 'CardDescription';\n+ProductsDescription.displayName = 'CardDescription';\n \n const AnalyticsContent = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n"
+                },
+                {
+                    "date": 1737991166132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,15 +54,15 @@\n   />\n ));\n ProductsDescription.displayName = 'CardDescription';\n \n-const AnalyticsContent = React.forwardRef<\n+const ProductsContent = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />\n ));\n-AnalyticsContent.displayName = 'CardContent';\n+ProductsContent.displayName = 'CardContent';\n \n const AnalyticsFooter = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n"
+                },
+                {
+                    "date": 1737991171867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n   <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />\n ));\n ProductsContent.displayName = 'CardContent';\n \n-const AnalyticsFooter = React.forwardRef<\n+const ProductsFooter = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n"
+                },
+                {
+                    "date": 1737991178568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,13 +72,13 @@\n     className={cn('flex items-center p-6 pt-0', className)}\n     {...props}\n   />\n ));\n-AnalyticsFooter.displayName = 'CardFooter';\n+ProductsFooter.displayName = 'CardFooter';\n \n export {\n-  Analytics,\n-  AnalyticsDescription,\n+  Products,\n+  ProductsDescription,\n   AnalyticsHeader,\n   AnalyticsTitle,\n   AnalyticsFooter,\n   AnalyticsContent\n"
+                },
+                {
+                    "date": 1737991185050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n \n export {\n   Products,\n   ProductsDescription,\n-  AnalyticsHeader,\n-  AnalyticsTitle,\n+  ProductsHeader,\n+  ProductsTitle,\n   AnalyticsFooter,\n   AnalyticsContent\n };\n"
+                }
+            ],
+            "date": 1737991126391,
+            "name": "Commit-0",
+            "content": "import { cn } from '@/lib/utils';\nimport React from 'react';\n\nconst Analytics = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\n      'rounded-lg border bg-card text-card-foreground shadow-sm',\n      className\n    )}\n    {...props}\n  />\n));\nAnalytics.displayName = 'Card';\n\nconst AnalyticsHeader = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn('flex flex-col space-y-1.5 p-6', className)}\n    {...props}\n  />\n));\nAnalyticsHeader.displayName = 'CardHeader';\n\nconst AnalyticsTitle = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLHeadingElement>\n>(({ className, ...props }, ref) => (\n  <h3\n    ref={ref}\n    className={cn(\n      'text-2xl font-semibold leading-none tracking-tight',\n      className\n    )}\n    {...props}\n  />\n));\nAnalyticsTitle.displayName = 'CardTitle';\n\nconst AnalyticsDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p\n    ref={ref}\n    className={cn('text-sm text-muted-foreground', className)}\n    {...props}\n  />\n));\nAnalyticsDescription.displayName = 'CardDescription';\n\nconst AnalyticsContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />\n));\nAnalyticsContent.displayName = 'CardContent';\n\nconst AnalyticsFooter = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn('flex items-center p-6 pt-0', className)}\n    {...props}\n  />\n));\nAnalyticsFooter.displayName = 'CardFooter';\n\nexport {\n  Analytics,\n  AnalyticsDescription,\n  AnalyticsHeader,\n  AnalyticsTitle,\n  AnalyticsFooter,\n  AnalyticsContent\n};\n"
+        }
+    ]
+}

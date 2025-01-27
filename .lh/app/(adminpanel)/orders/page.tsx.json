@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/(adminpanel)/orders/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1737991664618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1737991664618,
+            "name": "Commit-0",
+            "content": "import {\n  Orders,\n  OrdersContent,\n  OrdersDescription,\n  OrdersHeader,\n  OrdersTitle\n} from '@/components/ui/orders';\n\nexport default function OrdersPage() {\n  return (\n    <Orders>\n      <OrdersHeader>\n        <OrdersTitle>Orders</OrdersTitle>\n        <OrdersDescription>View all orders.</OrdersDescription>\n      </OrdersHeader>\n      <OrdersContent></OrdersContent>\n    </Orders>\n  );\n}\n"
+        }
+    ]
+}

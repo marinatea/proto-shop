@@ -1,0 +1,98 @@
+{
+    "sourceFile": "components/ui/analytics.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1737990568762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737990575869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { cn } from \"@/lib/utils\"\n+\n const Card = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n"
+                },
+                {
+                    "date": 1737990581835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { cn } from \"@/lib/utils\"\n \n-const Card = React.forwardRef<\n+const Analytics = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n"
+                },
+                {
+                    "date": 1737990587133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n     )}\n     {...props}\n   />\n ))\n-Card.displayName = \"Card\"\n\\ No newline at end of file\n+Analytics.displayName = \"Card\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1737990593237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { cn } from \"@/lib/utils\"\n+import React from \"react\"\n \n const Analytics = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n"
+                },
+                {
+                    "date": 1737990622596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,78 @@\n-import { cn } from \"@/lib/utils\"\n-import React from \"react\"\n+import { cn } from '@/lib/utils';\n+import React from 'react';\n \n const Analytics = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n     ref={ref}\n     className={cn(\n-      \"rounded-lg border bg-card text-card-foreground shadow-sm\",\n+      'rounded-lg border bg-card text-card-foreground shadow-sm',\n       className\n     )}\n     {...props}\n\\ No newline at end of file\n   />\n+));\n+Analytics.displayName = 'Card';\n+\n+const CardHeader = React.forwardRef<\n+  HTMLDivElement,\n+  React.HTMLAttributes<HTMLDivElement>\n+>(({ className, ...props }, ref) => (\n+  <div\n+    ref={ref}\n+    className={cn(\"flex flex-col space-y-1.5 p-6\", className)}\n+    {...props}\n+  />\n ))\n-Analytics.displayName = \"Card\"\n+CardHeader.displayName = \"CardHeader\"\n+\n+const CardTitle = React.forwardRef<\n+  HTMLParagraphElement,\n+  React.HTMLAttributes<HTMLHeadingElement>\n+>(({ className, ...props }, ref) => (\n+  <h3\n+    ref={ref}\n+    className={cn(\n+      \"text-2xl font-semibold leading-none tracking-tight\",\n+      className\n+    )}\n+    {...props}\n+  />\n+))\n+CardTitle.displayName = \"CardTitle\"\n+\n+const CardDescription = React.forwardRef<\n+  HTMLParagraphElement,\n+  React.HTMLAttributes<HTMLParagraphElement>\n+>(({ className, ...props }, ref) => (\n+  <p\n+    ref={ref}\n+    className={cn(\"text-sm text-muted-foreground\", className)}\n+    {...props}\n+  />\n+))\n+CardDescription.displayName = \"CardDescription\"\n+\n+const CardContent = React.forwardRef<\n+  HTMLDivElement,\n+  React.HTMLAttributes<HTMLDivElement>\n+>(({ className, ...props }, ref) => (\n+  <div ref={ref} className={cn(\"p-6 pt-0\", className)} {...props} />\n+))\n+CardContent.displayName = \"CardContent\"\n+\n+const CardFooter = React.forwardRef<\n+  HTMLDivElement,\n+  React.HTMLAttributes<HTMLDivElement>\n+>(({ className, ...props }, ref) => (\n+  <div\n+    ref={ref}\n+    className={cn(\"flex items-center p-6 pt-0\", className)}\n+    {...props}\n+  />\n+))\n+CardFooter.displayName = \"CardFooter\"\n+\n+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990633610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   />\n ));\n Analytics.displayName = 'Card';\n \n-const CardHeader = React.forwardRef<\n+const AnalyticsHeader = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n@@ -74,5 +74,5 @@\n   />\n ))\n CardFooter.displayName = \"CardFooter\"\n \n-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }\n\\ No newline at end of file\n+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990639344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     className={cn(\"flex flex-col space-y-1.5 p-6\", className)}\n     {...props}\n   />\n ))\n-CardHeader.displayName = \"CardHeader\"\n+AnalyticsHeader.displayName = \"CardHeader\"\n \n const CardTitle = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLHeadingElement>\n"
+                },
+                {
+                    "date": 1737990647409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   />\n ))\n AnalyticsHeader.displayName = \"CardHeader\"\n \n-const CardTitle = React.forwardRef<\n+const AnalyticsTitle = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLHeadingElement>\n >(({ className, ...props }, ref) => (\n   <h3\n"
+                },
+                {
+                    "date": 1737990654761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   />\n ))\n CardTitle.displayName = \"CardTitle\"\n \n-const CardDescription = React.forwardRef<\n+const AnalyticsDescription = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLParagraphElement>\n >(({ className, ...props }, ref) => (\n   <p\n"
+                },
+                {
+                    "date": 1737990661565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,17 +54,17 @@\n   />\n ))\n CardDescription.displayName = \"CardDescription\"\n \n-const CardContent = React.forwardRef<\n+const AnalyticsContent = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div ref={ref} className={cn(\"p-6 pt-0\", className)} {...props} />\n ))\n CardContent.displayName = \"CardContent\"\n \n-const CardFooter = React.forwardRef<\n+const AnalyticsFooter = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div\n"
+                },
+                {
+                    "date": 1737990670896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,7 +72,7 @@\n     className={cn(\"flex items-center p-6 pt-0\", className)}\n     {...props}\n   />\n ))\n-CardFooter.displayName = \"CardFooter\"\n+AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }\n+export { Card, CardHeader, AnalyticsFooter, CardTitle, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990680040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n   React.HTMLAttributes<HTMLDivElement>\n >(({ className, ...props }, ref) => (\n   <div ref={ref} className={cn(\"p-6 pt-0\", className)} {...props} />\n ))\n-CardContent.displayName = \"CardContent\"\n+AnalyticsContent.displayName = \"CardContent\"\n \n const AnalyticsFooter = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Card, CardHeader, AnalyticsFooter, CardTitle, CardDescription, CardContent }\n+export { Card, CardHeader, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990688502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     className={cn(\"text-sm text-muted-foreground\", className)}\n     {...props}\n   />\n ))\n-CardDescription.displayName = \"CardDescription\"\n+AnalyticsDescription.displayName = \"CardDescription\"\n \n const AnalyticsContent = React.forwardRef<\n   HTMLDivElement,\n   React.HTMLAttributes<HTMLDivElement>\n"
+                },
+                {
+                    "date": 1737990695262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     )}\n     {...props}\n   />\n ))\n-CardTitle.displayName = \"CardTitle\"\n+v.displayName = \"CardTitle\"\n \n const AnalyticsDescription = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLParagraphElement>\n"
+                },
+                {
+                    "date": 1737990704129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     )}\n     {...props}\n   />\n ))\n-v.displayName = \"CardTitle\"\n+AnalyticsTitle.displayName = \"CardTitle\"\n \n const AnalyticsDescription = React.forwardRef<\n   HTMLParagraphElement,\n   React.HTMLAttributes<HTMLParagraphElement>\n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Card, CardHeader, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n+export { Card, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990713527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Card, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n+export { Analytics, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n"
+                },
+                {
+                    "date": 1737990718620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Analytics, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardDescription, CardContent }\n+export { Analytics, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardContent }\n"
+                },
+                {
+                    "date": 1737990738815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Analytics, AnalyticsTitle, AnalyticsFooter, AnalyticsContent, CardContent }\n+export { Analytics, AnalyticsTitle, AnalyticsTitle, AnalyticsFooter, AnalyticsContent }\n"
+                },
+                {
+                    "date": 1737990745953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Analytics, AnalyticsTitle, AnalyticsTitle, AnalyticsFooter, AnalyticsContent }\n+export { Analytics, AnalyticsHeader, , AnalyticsTitle, AnalyticsFooter, AnalyticsContent }\n"
+                },
+                {
+                    "date": 1737990778788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,5 +74,5 @@\n   />\n ))\n AnalyticsFooter.displayName = \"CardFooter\"\n \n-export { Analytics, AnalyticsHeader, , AnalyticsTitle, AnalyticsFooter, AnalyticsContent }\n+export { Analytics, AnalyticsDescription, AnalyticsHeader, AnalyticsTitle, AnalyticsFooter, AnalyticsContent }\n"
+                }
+            ],
+            "date": 1737990568762,
+            "name": "Commit-0",
+            "content": "const Card = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\n      \"rounded-lg border bg-card text-card-foreground shadow-sm\",\n      className\n    )}\n    {...props}\n  />\n))\nCard.displayName = \"Card\""
+        }
+    ]
+}

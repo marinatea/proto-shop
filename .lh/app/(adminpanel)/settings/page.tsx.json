@@ -1,0 +1,38 @@
+{
+    "sourceFile": "app/(adminpanel)/settings/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1737991479407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737991484732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,19 @@\n import {\n-  Products,\n-  ProductsContent,\n-  ProductsDescription,\n-  ProductsHeader,\n-  ProductsTitle\n-} from '@/components/ui/products';\n+  S,\n+  SContent,\n+  SDescription,\n+  SHeader,\n+  STitle\n+} from '@/components/ui/S';\n \n export default function CustomersPage() {\n   return (\n-    <Products>\n-      <ProductsHeader>\n-        <ProductsTitle>Products</ProductsTitle>\n-        <ProductsDescription>View all products.</ProductsDescription>\n-      </ProductsHeader>\n-      <ProductsContent></ProductsContent>\n-    </Products>\n+    <S>\n+      <SHeader>\n+        <STitle>S</STitle>\n+        <SDescription>View all S.</SDescription>\n+      </SHeader>\n+      <SContent></SContent>\n+    </S>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991490023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,19 @@\n import {\n-  S,\n-  SContent,\n-  SDescription,\n-  SHeader,\n-  STitle\n-} from '@/components/ui/S';\n+  Settings,\n+  SettingsContent,\n+  SettingsDescription,\n+  SettingsHeader,\n+  SettingsTitle\n+} from '@/components/ui/Settings';\n \n export default function CustomersPage() {\n   return (\n-    <S>\n-      <SHeader>\n-        <STitle>S</STitle>\n-        <SDescription>View all S.</SDescription>\n-      </SHeader>\n-      <SContent></SContent>\n-    </S>\n+    <Settings>\n+      <SettingsHeader>\n+        <SettingsTitle>Settings</SettingsTitle>\n+        <SettingsDescription>View all Settings.</SettingsDescription>\n+      </SettingsHeader>\n+      <SettingsContent></SettingsContent>\n+    </Settings>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991604826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n   SettingsContent,\n   SettingsDescription,\n   SettingsHeader,\n   SettingsTitle\n-} from '@/components/ui/Settings';\n+} from '@/components/ui/settings';\n \n-export default function CustomersPage() {\n+export default function SettinPage() {\n   return (\n     <Settings>\n       <SettingsHeader>\n         <SettingsTitle>Settings</SettingsTitle>\n"
+                },
+                {
+                    "date": 1737991695878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n   SettingsContent,\n   SettingsDescription,\n   SettingsHeader,\n   SettingsTitle\n-} from '@/components/ui/settings';\n+} from '@/components/ui/';\n \n-export default function SettinPage() {\n+export default function SettingsPage() {\n   return (\n     <Settings>\n       <SettingsHeader>\n         <SettingsTitle>Settings</SettingsTitle>\n"
+                },
+                {
+                    "date": 1737991706000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,16 @@\n   SettingsContent,\n   SettingsDescription,\n   SettingsHeader,\n   SettingsTitle\n-} from '@/components/ui/';\n+} from '@/components/ui/settings';\n \n export default function SettingsPage() {\n   return (\n     <Settings>\n       <SettingsHeader>\n         <SettingsTitle>Settings</SettingsTitle>\n-        <SettingsDescription>View all Settings.</SettingsDescription>\n+        <SettingsDescription>View all settings.</SettingsDescription>\n       </SettingsHeader>\n       <SettingsContent></SettingsContent>\n     </Settings>\n   );\n"
+                }
+            ],
+            "date": 1737991479407,
+            "name": "Commit-0",
+            "content": "import {\n  Products,\n  ProductsContent,\n  ProductsDescription,\n  ProductsHeader,\n  ProductsTitle\n} from '@/components/ui/products';\n\nexport default function CustomersPage() {\n  return (\n    <Products>\n      <ProductsHeader>\n        <ProductsTitle>Products</ProductsTitle>\n        <ProductsDescription>View all products.</ProductsDescription>\n      </ProductsHeader>\n      <ProductsContent></ProductsContent>\n    </Products>\n  );\n}\n"
+        }
+    ]
+}

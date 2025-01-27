@@ -1,0 +1,62 @@
+{
+    "sourceFile": "app/(dashboard)/products/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1737989572415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737989603393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,55 @@\n-import {\n-  Card,\n-  CardContent,\n-  CardDescription,\n-  CardHeader,\n-  CardTitle\n-} from '@/components/ui/card';\n+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';\n+import { File, PlusCircle } from 'lucide-react';\n+import { Button } from '@/components/ui/button';\n+import { ProductsTable } from '../products-table';\n+import { getProducts } from '@/lib/db';\n \n-export default function CustomersPage() {\n+export default async function ProductsPage(\n+  props: {\n+    searchParams: Promise<{ q: string; offset: string }>;\n+  }\n+) {\n+  const searchParams = await props.searchParams;\n+  const search = searchParams.q ?? '';\n+  const offset = searchParams.offset ?? 0;\n+  const { products, newOffset, totalProducts } = await getProducts(\n+    search,\n+    Number(offset)\n+  );\n+\n   return (\n-    <Card>\n-      <CardHeader>\n-        <CardTitle>Customers</CardTitle>\n-        <CardDescription>View all customers and their orders.</CardDescription>\n-      </CardHeader>\n-      <CardContent></CardContent>\n-    </Card>\n+    <Tabs defaultValue=\"all\">\n+      <div className=\"flex items-center\">\n+        <TabsList>\n+          <TabsTrigger value=\"all\">All</TabsTrigger>\n+          <TabsTrigger value=\"active\">Active</TabsTrigger>\n+          <TabsTrigger value=\"draft\">Draft</TabsTrigger>\n+          <TabsTrigger value=\"archived\" className=\"hidden sm:flex\">\n+            Archived\n+          </TabsTrigger>\n+        </TabsList>\n+        <div className=\"ml-auto flex items-center gap-2\">\n+          <Button size=\"sm\" variant=\"outline\" className=\"h-8 gap-1\">\n+            <File className=\"h-3.5 w-3.5\" />\n+            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n+              Export\n+            </span>\n+          </Button>\n+          <Button size=\"sm\" className=\"h-8 gap-1\">\n+            <PlusCircle className=\"h-3.5 w-3.5\" />\n+            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n+              Add Product\n+            </span>\n+          </Button>\n+        </div>\n+      </div>\n+      <TabsContent value=\"all\">\n+        <ProductsTable\n+          products={products}\n+          offset={newOffset ?? 0}\n+          totalProducts={totalProducts}\n+        />\n+      </TabsContent>\n+    </Tabs>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991012293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,55 +1,19 @@\n-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';\n-import { File, PlusCircle } from 'lucide-react';\n-import { Button } from '@/components/ui/button';\n-import { ProductsTable } from '../products-table';\n-import { getProducts } from '@/lib/db';\n+import {\n+  Analytics,\n+  AnalyticsContent,\n+  AnalyticsDescription,\n+  AnalyticsHeader,\n+  AnalyticsTitle\n+} from '@/components/ui/analytics';\n \n-export default async function ProductsPage(\n-  props: {\n-    searchParams: Promise<{ q: string; offset: string }>;\n-  }\n-) {\n-  const searchParams = await props.searchParams;\n-  const search = searchParams.q ?? '';\n-  const offset = searchParams.offset ?? 0;\n-  const { products, newOffset, totalProducts } = await getProducts(\n-    search,\n-    Number(offset)\n-  );\n-\n+export default function CustomersPage() {\n   return (\n-    <Tabs defaultValue=\"all\">\n-      <div className=\"flex items-center\">\n-        <TabsList>\n-          <TabsTrigger value=\"all\">All</TabsTrigger>\n-          <TabsTrigger value=\"active\">Active</TabsTrigger>\n-          <TabsTrigger value=\"draft\">Draft</TabsTrigger>\n-          <TabsTrigger value=\"archived\" className=\"hidden sm:flex\">\n-            Archived\n-          </TabsTrigger>\n-        </TabsList>\n-        <div className=\"ml-auto flex items-center gap-2\">\n-          <Button size=\"sm\" variant=\"outline\" className=\"h-8 gap-1\">\n-            <File className=\"h-3.5 w-3.5\" />\n-            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n-              Export\n-            </span>\n-          </Button>\n-          <Button size=\"sm\" className=\"h-8 gap-1\">\n-            <PlusCircle className=\"h-3.5 w-3.5\" />\n-            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n-              Add Product\n-            </span>\n-          </Button>\n-        </div>\n-      </div>\n-      <TabsContent value=\"all\">\n-        <ProductsTable\n-          products={products}\n-          offset={newOffset ?? 0}\n-          totalProducts={totalProducts}\n-        />\n-      </TabsContent>\n-    </Tabs>\n+    <Analytics>\n+      <AnalyticsHeader>\n+        <AnalyticsTitle>Analytics</AnalyticsTitle>\n+        <AnalyticsDescription>View analytics.</AnalyticsDescription>\n+      </AnalyticsHeader>\n+      <AnalyticsContent></AnalyticsContent>\n+    </Analytics>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991018027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import {\n-  Analytics,\n+  Products,\n   AnalyticsContent,\n   AnalyticsDescription,\n   AnalyticsHeader,\n   AnalyticsTitle\n"
+                },
+                {
+                    "date": 1737991023988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import {\n   Products,\n-  AnalyticsContent,\n+  ProductsContent,\n   AnalyticsDescription,\n   AnalyticsHeader,\n   AnalyticsTitle\n } from '@/components/ui/analytics';\n"
+                },
+                {
+                    "date": 1737991031387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import {\n   Products,\n   ProductsContent,\n-  AnalyticsDescription,\n-  AnalyticsHeader,\n-  AnalyticsTitle\n+  ProductsDescription,\n+  ProductsHeader,\n+  ProductsTitle\n } from '@/components/ui/analytics';\n \n export default function CustomersPage() {\n   return (\n"
+                },
+                {
+                    "date": 1737991040885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,17 @@\n   ProductsContent,\n   ProductsDescription,\n   ProductsHeader,\n   ProductsTitle\n-} from '@/components/ui/analytics';\n+} from '@/components/ui/products';\n \n export default function CustomersPage() {\n   return (\n-    <Analytics>\n+    <Products>\n       <AnalyticsHeader>\n         <AnalyticsTitle>Analytics</AnalyticsTitle>\n         <AnalyticsDescription>View analytics.</AnalyticsDescription>\n       </AnalyticsHeader>\n       <AnalyticsContent></AnalyticsContent>\n-    </Analytics>\n+    </Products>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991049015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n   return (\n     <Products>\n       <AnalyticsHeader>\n         <AnalyticsTitle>Analytics</AnalyticsTitle>\n-        <AnalyticsDescription>View analytics.</AnalyticsDescription>\n+        <ProductsDescription>View analytics.</ProductsDescription>\n       </AnalyticsHeader>\n-      <AnalyticsContent></AnalyticsContent>\n+      <ProductsContent></ProductsContent>\n     </Products>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991054515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export default function CustomersPage() {\n   return (\n     <Products>\n       <AnalyticsHeader>\n-        <AnalyticsTitle>Analytics</AnalyticsTitle>\n+        <AnalyticsTitle>Produ</AnalyticsTitle>\n         <ProductsDescription>View analytics.</ProductsDescription>\n       </AnalyticsHeader>\n       <ProductsContent></ProductsContent>\n     </Products>\n"
+                },
+                {
+                    "date": 1737991062714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n export default function CustomersPage() {\n   return (\n     <Products>\n       <AnalyticsHeader>\n-        <AnalyticsTitle>Produ</AnalyticsTitle>\n-        <ProductsDescription>View analytics.</ProductsDescription>\n+        <AnalyticsTitle>Products</AnalyticsTitle>\n+        <ProductsDescription>View all .</ProductsDescription>\n       </AnalyticsHeader>\n       <ProductsContent></ProductsContent>\n     </Products>\n   );\n"
+                },
+                {
+                    "date": 1737991070523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,12 @@\n \n export default function CustomersPage() {\n   return (\n     <Products>\n-      <AnalyticsHeader>\n+      <ProductsHeader>\n         <AnalyticsTitle>Products</AnalyticsTitle>\n-        <ProductsDescription>View all .</ProductsDescription>\n-      </AnalyticsHeader>\n+        <ProductsDescription>View all products.</ProductsDescription>\n+      </ProductsHeader>\n       <ProductsContent></ProductsContent>\n     </Products>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991076283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export default function CustomersPage() {\n   return (\n     <Products>\n       <ProductsHeader>\n-        <AnalyticsTitle>Products</AnalyticsTitle>\n+        <ProductsTitle>Products</ProductsTitle>\n         <ProductsDescription>View all products.</ProductsDescription>\n       </ProductsHeader>\n       <ProductsContent></ProductsContent>\n     </Products>\n"
+                }
+            ],
+            "date": 1737989572415,
+            "name": "Commit-0",
+            "content": "import {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle\n} from '@/components/ui/card';\n\nexport default function CustomersPage() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Customers</CardTitle>\n        <CardDescription>View all customers and their orders.</CardDescription>\n      </CardHeader>\n      <CardContent></CardContent>\n    </Card>\n  );\n}\n"
+        }
+    ]
+}

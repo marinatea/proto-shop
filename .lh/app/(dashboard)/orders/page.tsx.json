@@ -1,0 +1,34 @@
+{
+    "sourceFile": "app/(dashboard)/orders/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1737989872979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737991298761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,19 @@\n-export default function AnalyticsPage() {\n-  return <></>;\n+import {\n+  Analytics,\n+  AnalyticsContent,\n+  AnalyticsDescription,\n+  AnalyticsHeader,\n+  AnalyticsTitle\n+} from '@/components/ui/analytics';\n+\n+export default function CustomersPage() {\n+  return (\n+    <Analytics>\n+      <AnalyticsHeader>\n+        <AnalyticsTitle>Analytics</AnalyticsTitle>\n+        <AnalyticsDescription>View analytics.</AnalyticsDescription>\n+      </AnalyticsHeader>\n+      <AnalyticsContent></AnalyticsContent>\n+    </Analytics>\n+  );\n }\n"
+                },
+                {
+                    "date": 1737991307122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,19 @@\n import {\n-  Analytics,\n-  AnalyticsContent,\n-  AnalyticsDescription,\n-  AnalyticsHeader,\n-  AnalyticsTitle\n-} from '@/components/ui/analytics';\n+  ,\n+  Content,\n+  Description,\n+  Header,\n+  Title\n+} from '@/components/ui/';\n \n export default function CustomersPage() {\n   return (\n-    <Analytics>\n-      <AnalyticsHeader>\n-        <AnalyticsTitle>Analytics</AnalyticsTitle>\n-        <AnalyticsDescription>View analytics.</AnalyticsDescription>\n-      </AnalyticsHeader>\n-      <AnalyticsContent></AnalyticsContent>\n-    </Analytics>\n+    <>\n+      <Header>\n+        <Title></Title>\n+        <Description>View .</Description>\n+      </Header>\n+      <Content></Content>\n+    </>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991314443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,19 @@\n import {\n-  ,\n-  Content,\n-  Description,\n-  Header,\n-  Title\n-} from '@/components/ui/';\n+  Orders,\n+  OrdersContent,\n+  OrdersDescription,\n+  OrdersHeader,\n+  OrdersTitle\n+} from '@/components/ui/orders';\n \n export default function CustomersPage() {\n   return (\n-    <>\n-      <Header>\n-        <Title></Title>\n-        <Description>View .</Description>\n-      </Header>\n-      <Content></Content>\n-    </>\n+    <Orders>\n+      <OrdersHeader>\n+        <OrdersTitle>Orders</OrdersTitle>\n+        <OrdersDescription>View Orders.</OrdersDescription>\n+      </OrdersHeader>\n+      <OrdersContent></OrdersContent>\n+    </Orders>\n   );\n }\n"
+                },
+                {
+                    "date": 1737991325433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   return (\n     <Orders>\n       <OrdersHeader>\n         <OrdersTitle>Orders</OrdersTitle>\n-        <OrdersDescription>View Orders.</OrdersDescription>\n+        <OrdersDescription>View all Orders.</OrdersDescription>\n       </OrdersHeader>\n       <OrdersContent></OrdersContent>\n     </Orders>\n   );\n"
+                }
+            ],
+            "date": 1737989872979,
+            "name": "Commit-0",
+            "content": "export default function AnalyticsPage() {\n  return <></>;\n}\n"
+        }
+    ]
+}
