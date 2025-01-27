@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/(dashboard)/product.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1737989187987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1737989187987,
+            "name": "Commit-0",
+            "content": "import Image from 'next/image';\nimport { Badge } from '@/components/ui/badge';\nimport { Button } from '@/components/ui/button';\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuTrigger\n} from '@/components/ui/dropdown-menu';\nimport { MoreHorizontal } from 'lucide-react';\nimport { TableCell, TableRow } from '@/components/ui/table';\nimport { SelectProduct } from '@/lib/db';\nimport { deleteProduct } from './actions';\n\nexport function Product({ product }: { product: SelectProduct }) {\n  // return (\n  //   <TableRow>\n  //     <TableCell className=\"hidden sm:table-cell\">\n  //       <Image\n  //         alt=\"Product image\"\n  //         className=\"aspect-square rounded-md object-cover\"\n  //         height=\"64\"\n  //         src={product.imageUrl}\n  //         width=\"64\"\n  //       />\n  //     </TableCell>\n  //     <TableCell className=\"font-medium\">{product.name}</TableCell>\n  //     <TableCell>\n  //       <Badge variant=\"outline\" className=\"capitalize\">\n  //         {product.status}\n  //       </Badge>\n  //     </TableCell>\n  //     <TableCell className=\"hidden md:table-cell\">{`$${product.price}`}</TableCell>\n  //     <TableCell className=\"hidden md:table-cell\">{product.stock}</TableCell>\n  //     <TableCell className=\"hidden md:table-cell\">\n  //       {product.availableAt.toLocaleDateString(\"en-US\")}\n  //     </TableCell>\n  //     <TableCell>\n  //       <DropdownMenu>\n  //         <DropdownMenuTrigger asChild>\n  //           <Button aria-haspopup=\"true\" size=\"icon\" variant=\"ghost\">\n  //             <MoreHorizontal className=\"h-4 w-4\" />\n  //             <span className=\"sr-only\">Toggle menu</span>\n  //           </Button>\n  //         </DropdownMenuTrigger>\n  //         <DropdownMenuContent align=\"end\">\n  //           <DropdownMenuLabel>Actions</DropdownMenuLabel>\n  //           <DropdownMenuItem>Edit</DropdownMenuItem>\n  //           <DropdownMenuItem>\n  //             <form action={deleteProduct}>\n  //               <button type=\"submit\">Delete</button>\n  //             </form>\n  //           </DropdownMenuItem>\n  //         </DropdownMenuContent>\n  //       </DropdownMenu>\n  //     </TableCell>\n  //   </TableRow>\n  // );\n}\n"
+        }
+    ]
+}

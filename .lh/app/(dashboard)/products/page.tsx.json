@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/(dashboard)/products/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1737989572415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737989603393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,55 @@\n-import {\n-  Card,\n-  CardContent,\n-  CardDescription,\n-  CardHeader,\n-  CardTitle\n-} from '@/components/ui/card';\n+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';\n+import { File, PlusCircle } from 'lucide-react';\n+import { Button } from '@/components/ui/button';\n+import { ProductsTable } from '../products-table';\n+import { getProducts } from '@/lib/db';\n \n-export default function CustomersPage() {\n+export default async function ProductsPage(\n+  props: {\n+    searchParams: Promise<{ q: string; offset: string }>;\n+  }\n+) {\n+  const searchParams = await props.searchParams;\n+  const search = searchParams.q ?? '';\n+  const offset = searchParams.offset ?? 0;\n+  const { products, newOffset, totalProducts } = await getProducts(\n+    search,\n+    Number(offset)\n+  );\n+\n   return (\n-    <Card>\n-      <CardHeader>\n-        <CardTitle>Customers</CardTitle>\n-        <CardDescription>View all customers and their orders.</CardDescription>\n-      </CardHeader>\n-      <CardContent></CardContent>\n-    </Card>\n+    <Tabs defaultValue=\"all\">\n+      <div className=\"flex items-center\">\n+        <TabsList>\n+          <TabsTrigger value=\"all\">All</TabsTrigger>\n+          <TabsTrigger value=\"active\">Active</TabsTrigger>\n+          <TabsTrigger value=\"draft\">Draft</TabsTrigger>\n+          <TabsTrigger value=\"archived\" className=\"hidden sm:flex\">\n+            Archived\n+          </TabsTrigger>\n+        </TabsList>\n+        <div className=\"ml-auto flex items-center gap-2\">\n+          <Button size=\"sm\" variant=\"outline\" className=\"h-8 gap-1\">\n+            <File className=\"h-3.5 w-3.5\" />\n+            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n+              Export\n+            </span>\n+          </Button>\n+          <Button size=\"sm\" className=\"h-8 gap-1\">\n+            <PlusCircle className=\"h-3.5 w-3.5\" />\n+            <span className=\"sr-only sm:not-sr-only sm:whitespace-nowrap\">\n+              Add Product\n+            </span>\n+          </Button>\n+        </div>\n+      </div>\n+      <TabsContent value=\"all\">\n+        <ProductsTable\n+          products={products}\n+          offset={newOffset ?? 0}\n+          totalProducts={totalProducts}\n+        />\n+      </TabsContent>\n+    </Tabs>\n   );\n }\n"
+                }
+            ],
+            "date": 1737989572415,
+            "name": "Commit-0",
+            "content": "import {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle\n} from '@/components/ui/card';\n\nexport default function CustomersPage() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Customers</CardTitle>\n        <CardDescription>View all customers and their orders.</CardDescription>\n      </CardHeader>\n      <CardContent></CardContent>\n    </Card>\n  );\n}\n"
+        }
+    ]
+}
