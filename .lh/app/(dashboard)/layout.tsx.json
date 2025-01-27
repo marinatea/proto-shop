@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1737987257097,
@@ -80,6 +80,10 @@
                 {
                     "date": 1737988762060,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   TooltipTrigger\n } from '@/components/ui/tooltip';\n import { Analytics } from '@vercel/analytics/react';\n import { User } from './user';\n-import { VercelLogo } from '@/components/icons';\n+// import { VercelLogo } from '@/components/icons';\n import Providers from './providers';\n import { NavItem } from './nav-item';\n import { SearchInput } from './search';\n \n@@ -61,15 +61,15 @@\n function DesktopNav() {\n   return (\n     <aside className=\"fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex\">\n       <nav className=\"flex flex-col items-center gap-4 px-2 sm:py-5\">\n-        <Link\n+        {/* <Link\n           href=\"https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs\"\n           className=\"group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base\"\n         >\n           <VercelLogo className=\"h-3 w-3 transition-all group-hover:scale-110\" />\n           <span className=\"sr-only\">Acme Inc</span>\n-        </Link>\n+        </Link> */}\n \n         <NavItem href=\"/\" label=\"Dashboard\">\n           <Home className=\"h-5 w-5\" />\n         </NavItem>\n@@ -118,15 +118,15 @@\n         </Button>\n       </SheetTrigger>\n       <SheetContent side=\"left\" className=\"sm:max-w-xs\">\n         <nav className=\"grid gap-6 text-lg font-medium\">\n-          <Link\n+          {/* <Link\n             href=\"#\"\n             className=\"group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base\"\n           >\n             <Package2 className=\"h-5 w-5 transition-all group-hover:scale-110\" />\n             <span className=\"sr-only\">Vercel</span>\n-          </Link>\n+          </Link> */}\n           <Link\n             href=\"/\"\n             className=\"flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground\"\n           >\n@@ -172,9 +172,9 @@\n     <Breadcrumb className=\"hidden md:flex\">\n       <BreadcrumbList>\n         <BreadcrumbItem>\n           <BreadcrumbLink asChild>\n-            <Link href=\"/dashbord\">Dashboard</Link>\n+            <Link href=\"/\">Dashboard</Link>\n           </BreadcrumbLink>\n         </BreadcrumbItem>\n         <BreadcrumbSeparator />\n         <BreadcrumbItem>\n"
+                },
+                {
+                    "date": 1737990020006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import {\n   Home,\n   LineChart,\n   Package,\n-  Package2,\n+  // Package2,\n   PanelLeft,\n   Settings,\n   ShoppingCart,\n   Users2\n"
                 }
             ],
             "date": 1737987257097,

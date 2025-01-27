@@ -3,7 +3,7 @@ import {
   Home,
   LineChart,
   Package,
-  Package2,
+  // Package2,
   PanelLeft,
   Settings,
   ShoppingCart,
