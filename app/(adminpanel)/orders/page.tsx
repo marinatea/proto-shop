@@ -6,7 +6,7 @@ import {
   OrdersTitle
 } from '@/components/ui/orders';
 
-export default function CustomersPage() {
+export default function OrdersPage() {
   return (
     <Orders>
       <OrdersHeader>

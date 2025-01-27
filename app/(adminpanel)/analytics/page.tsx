@@ -6,7 +6,7 @@ import {
   AnalyticsTitle
 } from '@/components/ui/analytics';
 
-export default function CustomersPage() {
+export default function AnalyticsPage() {
   return (
     <Analytics>
       <AnalyticsHeader>

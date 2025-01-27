@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/(adminpanel)/products/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1737991657320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1737991657320,
+            "name": "Commit-0",
+            "content": "import {\n  Products,\n  ProductsContent,\n  ProductsDescription,\n  ProductsHeader,\n  ProductsTitle\n} from '@/components/ui/products';\n\nexport default function ProductsPage() {\n  return (\n    <Products>\n      <ProductsHeader>\n        <ProductsTitle>Products</ProductsTitle>\n        <ProductsDescription>View all products.</ProductsDescription>\n      </ProductsHeader>\n      <ProductsContent></ProductsContent>\n    </Products>\n  );\n}\n"
+        }
+    ]
+}
