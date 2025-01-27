@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/(dashboard)/products/products.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1737990369819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1737990459376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export default function DashboardPage() {\n+export default function ProductsPage() {\n   return <></>;\n }\n"
+                }
+            ],
+            "date": 1737990369819,
+            "name": "Commit-0",
+            "content": "export default function DashboardPage() {\n  return <></>;\n}\n"
+        }
+    ]
+}
