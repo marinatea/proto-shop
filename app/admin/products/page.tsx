@@ -4,7 +4,7 @@ import {
   ProductsDescription,
   ProductsHeader,
   ProductsTitle
-} from '@/components/ui/products';
+} from '@/components/ui/Products';
 
 export default function ProductsPage() {
   return (

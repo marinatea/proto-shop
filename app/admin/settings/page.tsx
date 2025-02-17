@@ -4,7 +4,7 @@ import {
   SettingsDescription,
   SettingsHeader,
   SettingsTitle
-} from '@/components/ui/settings';
+} from '@/components/ui/Settings';
 
 export default function SettingsPage() {
   return (

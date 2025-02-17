@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableBody,
   Table
-} from '@/components/ui/table';
+} from '@/components/ui/Table';
 import {
   Card,
   CardContent,
@@ -14,12 +14,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { Product } from './product';
 import { SelectProduct } from '@/lib/db';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
 export function ProductsTable({
   products,
@@ -80,7 +80,11 @@ export function ProductsTable({
           <div className="text-xs text-muted-foreground">
             Showing{' '}
             <strong>
-              {Math.max(0, Math.min(offset - productsPerPage, totalProducts) + 1)}-{offset}
+              {Math.max(
+                0,
+                Math.min(offset - productsPerPage, totalProducts) + 1
+              )}
+              -{offset}
             </strong>{' '}
             of <strong>{totalProducts}</strong> products
           </div>

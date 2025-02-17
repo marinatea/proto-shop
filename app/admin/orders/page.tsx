@@ -4,7 +4,7 @@ import {
   OrdersDescription,
   OrdersHeader,
   OrdersTitle
-} from '@/components/ui/orders';
+} from '@/components/ui/Orders';
 
 export default function OrdersPage() {
   return (

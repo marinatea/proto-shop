@@ -1,10 +1,10 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import { File, PlusCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { ProductsTable } from './products-table';
 import { getProducts } from '@/lib/db';
 
-export default async function ProductsPage(props: {
+export default async function AdminPage(props: {
   searchParams: Promise<{ q: string; offset: string }>;
 }) {
   const searchParams = await props.searchParams;

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { auth, signOut } from '@/lib/auth';
 import Image from 'next/image';
 import {
@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui/DropdownMenu';
 import Link from 'next/link';
 
 export async function User() {
@@ -22,6 +22,7 @@ export async function User() {
           variant="outline"
           size="icon"
           className="overflow-hidden rounded-full"
+          onClick={() => console.log('Button clicked')}
         >
           <Image
             src={user?.image ?? '/placeholder-user.jpg'}
@@ -32,7 +33,7 @@ export async function User() {
           />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="absolute z-10">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Settings</DropdownMenuItem>

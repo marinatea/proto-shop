@@ -37,3 +37,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+.lh/
+.lh/app/(adminpanel)/analytics/page.tsx.json
+.lh/app/(adminpanel)/products/page.tsx.json

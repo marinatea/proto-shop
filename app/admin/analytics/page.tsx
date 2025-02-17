@@ -4,7 +4,7 @@ import {
   AnalyticsDescription,
   AnalyticsHeader,
   AnalyticsTitle
-} from '@/components/ui/analytics';
+} from '@/components/ui/Analytics';
 
 export default function AnalyticsPage() {
   return (
