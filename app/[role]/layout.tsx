@@ -1,23 +1,18 @@
-import { authOptions } from '@/lib/auth';
-import { getServerSession } from 'next-auth';
+// app/[role]/layout.tsx
+import { ReactNode } from 'react';
 
 type Props = {
-  params: {
-    role: string;
-  };
+  params: { role: string };
+  children: ReactNode;
 };
 
 export default async function RoleLayout({ params }: Props) {
-  const { role } = await params; // Czekamy na załadowanie params
-  console.log('Role in layout:', role);
-
-  const session = await getServerSession(authOptions);
-  console.log('Session:', session);
+  const { role } = await params;
 
   return (
     <div>
-      <h1>Role: {role}</h1>
-      {/* Dalsza logika lub komponenty */}
+      <h1>Welcome, {role}!</h1>
+      {/* Reszta komponentu */}
     </div>
   );
 }
