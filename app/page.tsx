@@ -1,19 +1,26 @@
 // app/page.tsx
-import { redirect } from 'next/navigation';
-import { getSession } from 'next-auth/react';
-import { User } from '../types/types';
+'use client';
 
-export default async function Home() {
-  const session = await getSession();
+import { useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-  if (session) {
-    const user = session.user as User;
-    if ((user?.role as string) === 'admin') {
-      redirect('/admin');
-    } else {
-      redirect('/user/dashboard');
+export default function Home() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      // Użyj roli z sesji lub domyślnie 'user'
+      const role = session?.user?.role || 'user';
+      console.log('Redirecting to role:', role);
+      
+      // Przekieruj do odpowiedniej ścieżki z parametrem [role]
+      router.push(`/${role}/dashboard`);
+    } else if (status === 'unauthenticated') {
+      router.push('/publicpanel');
     }
-  } else {
-    redirect('/public/landing');
-  }
+  }, [status, session, router]);
+
+  return <div>Loading...</div>;
 }
