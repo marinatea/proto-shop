@@ -1,9 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig: import('next').NextConfig = {
-  // Tymczasowo wyłącz sprawdzanie typu ścieżek dla debugowania
+import { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ['avatars.githubusercontent.com'],
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

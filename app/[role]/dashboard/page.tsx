@@ -13,7 +13,6 @@ export default function RoleDashboard() {
   const role = params.role as string;
 
   useEffect(() => {
-    // Przekieruj do właściwego dashboardu na podstawie roli
     if (role === 'user') {
       router.push(`/${role}/user/dashboard`);
     } else if (role === 'admin') {

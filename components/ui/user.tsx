@@ -11,25 +11,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
 export function User() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (status !== 'loading' && !session) {
-      router.push('/publicpanel');
-    }
-  }, [session, router, status]);
-
-  if (status === 'loading') return null;
+  if (status === 'loading') return <div>Loading...</div>;
 
   if (!session) {
     return (
-      <Button onClick={() => signIn('github')} variant="outline">
+      <Button
+        onClick={() => signIn('github', { callbackUrl: '/user/dashboard' })}
+        variant="outline"
+      >
         Sign In with GitHub
       </Button>
     );
