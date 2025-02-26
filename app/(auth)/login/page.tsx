@@ -8,18 +8,18 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const LoginPage = () => {
   const router = useRouter();
-  
+
   const handleSignIn = async () => {
     await signIn('github', {
-      redirectTo: '/user/dashboard',
+      redirectTo: '/user/dashboard'
     });
   };
-  
 
   return (
     <div className="min-h-screen flex justify-center items-start md:items-center p-8">
