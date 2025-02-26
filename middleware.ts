@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   console.log(`Middleware processing path: ${path}`);
 
-  if (path === '/publicpanel') {
+  if (path === '/') {
     return NextResponse.next();
   }
 
@@ -21,8 +21,8 @@ export async function middleware(request: NextRequest) {
   }
 
   if (!token) {
-    console.log('Brak tokenu - przekierowanie na /publicpanel');
-    return NextResponse.redirect(new URL('/publicpanel', request.url));
+    console.log('Brak tokenu - przekierowanie na /');
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
   if (path === '/user/dashboard' || path === '/admin/dashboard') {

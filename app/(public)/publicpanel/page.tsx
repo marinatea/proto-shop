@@ -20,7 +20,7 @@ export default function PublicPage() {
         router.push('/user/dashboard');
       }
     } else {
-      router.push('/publicpanel');
+      router.push('/');
     }
   }, [session, status, router]);
 
