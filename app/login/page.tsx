@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const handleSignIn = async () => {
     await signIn('github', {
-      redirectTo: '/user/dashboard'
+      redirectTo: `${baseUrl}/user/dashboard`
     });
   };
 
