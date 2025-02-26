@@ -17,7 +17,7 @@ export async function middleware(request: NextRequest) {
   console.log('Sesja:', token);
 
   if (token && (path === '/' || path === '/login')) {
-    return NextResponse.redirect(new URL('/user/dashboard', request.url));
+    return NextResponse.redirect(new URL('/user/user', request.url));
   }
 
   if (!token) {
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  if (path === '/user/dashboard' || path === '/admin/dashboard') {
+  if (path === '/user' || path === '/admin/admin') {
     return NextResponse.next();
   }
 

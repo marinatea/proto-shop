@@ -14,9 +14,9 @@ export default function RoleDashboard() {
 
   useEffect(() => {
     if (role === 'user') {
-      router.push(`/${role}/user/dashboard`);
+      router.push(`/${role}/user`);
     } else if (role === 'admin') {
-      router.push(`/${role}/admin/dashboard`);
+      router.push(`/${role}/admin`);
     }
   }, [role, router]);
 

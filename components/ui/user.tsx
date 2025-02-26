@@ -22,7 +22,7 @@ export function User() {
   if (!session) {
     return (
       <Button
-        onClick={() => signIn('github', { callbackUrl: '/user/dashboard' })}
+        onClick={() => signIn('github', { callbackUrl: '/user/user' })}
         variant="outline"
       >
         Sign In with GitHub

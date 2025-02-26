@@ -15,9 +15,9 @@ export default function PublicPage() {
   useEffect(() => {
     if (status === 'authenticated') {
       if (session.user.role === 'admin') {
-        router.push('/admin/dashboard');
+        router.push('/admin/admin');
       } else {
-        router.push('/user/dashboard');
+        router.push('/user/user');
       }
     } else {
       router.push('/');

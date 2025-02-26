@@ -32,9 +32,9 @@ export const authOptions: NextAuthOptions = {
       // Check role and redirect to the appropriate page
       const session = await getSession(); // You need to import and use getSession to get the current session
       if (session?.user?.role === 'admin') {
-        return `${baseUrl}/admin/dashboard`;
+        return `${baseUrl}/admin/admin`;
       } else if (session?.user?.role === 'user') {
-        return `${baseUrl}/user/dashboard`;
+        return `${baseUrl}/user/user`;
       }
       return baseUrl; // Default redirect
     },

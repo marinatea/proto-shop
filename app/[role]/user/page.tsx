@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useParams } from 'next/navigation';
-import { SearchInput } from '../search';
+import { SearchInput } from '../../../components/user/search';
 import { User } from '@/components/ui/user';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
@@ -21,9 +21,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb';
-import { NavItem } from '../../../../components/admin/nav-item';
+import { NavItem } from '../../../components/admin/nav-item';
 import Link from 'next/link';
-import { Settings } from '../../../../components/ui/settings';
+import { Settings } from '../../../components/ui/settings';
 
 export default function UserDashboard() {
   const { data: session } = useSession();
@@ -57,7 +57,7 @@ function DesktopNav() {
   return (
     <aside className="sticky inset-y-0 left-0 z-10 bg-background border-r hidden sm:flex flex-col">
       <nav className="flex flex-col items-start gap-4 px-6 py-5">
-        <NavItem href="/user/dashboard" label="Dashboard">
+        <NavItem href="/user/user" label="Dashboard">
           <Home className="h-5 w-5" />
         </NavItem>
 
@@ -101,7 +101,7 @@ function MobileNav() {
       <SheetContent side="left" className="sm:max-w-xs">
         <nav className="grid gap-6 text-lg font-medium">
           <Link
-            href="/user/dashboard"
+            href="/user/user"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Home className="h-5 w-5" />
@@ -141,7 +141,7 @@ function DashboardBreadcrumb() {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/user/dashboard">User Panel</Link>
+            <Link href="/user/user">User Panel</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

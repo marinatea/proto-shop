@@ -26,10 +26,10 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import { Analytics } from '@vercel/analytics/react';
-import { NavItem } from '../../../components/admin/nav-item';
+import { User } from './user';
+import Providers from '../providers';
+import { NavItem } from './nav-item';
 import { SearchInput } from '../../../components/user/search';
-import { Providers } from 'app/providers';
-import { User } from '@/components/ui/user';
 
 export default function AdminLayout({
   children
@@ -65,19 +65,19 @@ function DesktopNav() {
           <Home className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/admin/orders" label="Orders">
+        <NavItem href="/orders" label="Orders">
           <ShoppingCart className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/admin/products" label="Products">
+        <NavItem href="/products" label="Products">
           <Package className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/admin/customers" label="Customers">
+        <NavItem href="/customers" label="Customers">
           <Users2 className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/admin/analytics" label="Analytics">
+        <NavItem href="/analytics" label="Analytics">
           <LineChart className="h-5 w-5" />
         </NavItem>
       </nav>
@@ -85,7 +85,7 @@ function DesktopNav() {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="/admin/settings"
+              href="/settings"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <Settings className="h-5 w-5" />
@@ -118,28 +118,28 @@ function MobileNav() {
             Admin Panel
           </Link>
           <Link
-            href="/admin/orders"
+            href="/orders"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <ShoppingCart className="h-5 w-5" />
             Orders
           </Link>
           <Link
-            href="/admin/products"
+            href="/products"
             className="flex items-center gap-4 px-2.5 text-foreground"
           >
             <Package className="h-5 w-5" />
             Products
           </Link>
           <Link
-            href="/admin/customers"
+            href="/customers"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Users2 className="h-5 w-5" />
             Customers
           </Link>
           <Link
-            href="/admin/settings"
+            href="/settings"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <LineChart className="h-5 w-5" />
@@ -163,7 +163,7 @@ function DashboardBreadcrumb() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/admin/products">Products</Link>
+            <Link href="/products">Products</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
