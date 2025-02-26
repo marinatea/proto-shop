@@ -62,7 +62,7 @@ export function User() {
         <DropdownMenuItem>
           <button
             onClick={async () => {
-              await signOut({ callbackUrl: '/' });
+              await signOut({ callbackUrl: '/publicpanel' });
             }}
           >
             Sign Out

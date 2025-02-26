@@ -18,7 +18,7 @@ export default function Home() {
       // Przekieruj do odpowiedniej ścieżki z parametrem [role]
       router.push(`/${role}/dashboard`);
     } else if (status === 'unauthenticated') {
-      router.push('/');
+      router.push('/publicpanel');
     }
   }, [status, session, router]);
 
