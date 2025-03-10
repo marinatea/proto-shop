@@ -39,7 +39,6 @@ export async function getProducts(
   newOffset: number | null;
   totalProducts: number;
 }> {
-  // Always search the full table, not per page
   if (search) {
     return {
       products: await db

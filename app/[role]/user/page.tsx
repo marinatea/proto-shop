@@ -52,7 +52,6 @@ export default function UserDashboard() {
   );
 }
 
-// Boczne menu dla wersji desktopowej
 function DesktopNav() {
   return (
     <aside className="sticky inset-y-0 left-0 z-10 bg-background border-r hidden sm:flex flex-col">
@@ -88,7 +87,6 @@ function DesktopNav() {
   );
 }
 
-// Nawigacja mobilna
 function MobileNav() {
   return (
     <Sheet>
@@ -134,7 +132,6 @@ function MobileNav() {
   );
 }
 
-// Breadcrumb nawigacja
 function DashboardBreadcrumb() {
   return (
     <Breadcrumb className="hidden md:flex">
