@@ -7,6 +7,7 @@ import {
   PanelLeft,
   Settings,
   ShoppingCart,
+  User,
   Users2
 } from 'lucide-react';
 
@@ -26,10 +27,10 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import { Analytics } from '@vercel/analytics/react';
-import { User } from './user';
-import Providers from '../providers';
-import { NavItem } from './nav-item';
+
 import { SearchInput } from '../../../components/user/search';
+import { NavItem } from '@/components/admin/nav-item';
+import { Providers } from 'app/providers';
 
 export default function AdminLayout({
   children
