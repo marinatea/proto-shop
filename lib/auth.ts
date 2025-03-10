@@ -7,11 +7,19 @@ export const authOptions: NextAuthOptions = {
     GitHubProvider({
       clientId: process.env.AUTH_GITHUB_ID!,
       clientSecret: process.env.AUTH_SECRET!,
-    }),
+      authorization: {
+        params: {
+          redirect_uri:
+            process.env.NODE_ENV === 'production'
+              ? 'https://proto-shop-5m88v594p-marinateas-projects.vercel.app/api/auth/callback/github'
+              : 'http://localhost:3000/api/auth/callback/github'
+        }
+      }
+    })
   ],
   pages: {
     signIn: '/login',
-    signOut: '/',
+    signOut: '/'
   },
   callbacks: {
     async jwt({ token, account }) {
@@ -34,8 +42,8 @@ export const authOptions: NextAuthOptions = {
         return `${baseUrl}/user/user`;
       }
       return baseUrl;
-    },
-  },
+    }
+  }
 };
 
 export default NextAuth(authOptions);
