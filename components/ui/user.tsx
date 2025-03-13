@@ -11,11 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { useRouter } from 'next/navigation';
 
 export function User() {
   const { data: session, status } = useSession();
-  const router = useRouter();
 
   if (status === 'loading') return <div>Loading...</div>;
 
