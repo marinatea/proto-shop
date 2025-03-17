@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button';
+'use client';
+
 import {
   Card,
   CardDescription,
@@ -6,9 +7,19 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import { signIn } from '@/lib/auth';
+import { Button } from '@/components/ui/button';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-export default function LoginPage() {
+const LoginPage = () => {
+  const router = useRouter();
+
+  const handleSignIn = async () => {
+    await signIn('github', {
+      redirectTo: `${baseUrl}/user/user`
+    });
+  };
+
   return (
     <div className="min-h-screen flex justify-center items-start md:items-center p-8">
       <Card className="w-full max-w-sm">
@@ -19,19 +30,13 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardFooter>
-          <form
-            action={async () => {
-              'use server';
-              await signIn('github', {
-                redirectTo: '/'
-              });
-            }}
-            className="w-full"
-          >
-            <Button className="w-full">Sign in with GitHub</Button>
-          </form>
+          <Button className="w-full" onClick={handleSignIn}>
+            Sign in with GitHub
+          </Button>
         </CardFooter>
       </Card>
     </div>
   );
-}
+};
+
+export default LoginPage;

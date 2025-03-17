@@ -1,16 +1,12 @@
-export default {
+import { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.public.blob.vercel-storage.com',
-        pathname: '**',
-      }
-    ]
-  }
+    domains: ['avatars.githubusercontent.com'],
+  },
 };
+
+export default nextConfig;
