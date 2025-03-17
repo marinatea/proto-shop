@@ -3,8 +3,7 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import User from '../components/ui/user';
+import Header from '@/components/shared/header';
 
 export default function PublicPage() {
   const { data: session, status } = useSession();
@@ -24,15 +23,8 @@ export default function PublicPage() {
 
   return (
     <div className="h-screen flex flex-col">
-      <header className="flex justify-between items-center p-4 bg-gray-200">
-        <h1 className="text-xl font-bold">Public Page</h1>
-
-        <div className="relative">
-          <User />
-        </div>
-      </header>
-
-      <main className="flex-grow flex justify-center items-center">
+      <Header />
+      <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-4 px-6">
         <p>To jest publiczna strona.</p>
       </main>
     </div>
