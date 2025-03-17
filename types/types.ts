@@ -5,3 +5,8 @@ export interface User {
   image?: string
   role?: string 
 }
+
+export interface NavLinkProps {
+  name: string;
+  href: string;
+}
