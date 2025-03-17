@@ -3,14 +3,12 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import User from '../components/ui/user';
 
 export default function PublicPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (status === 'authenticated') {
