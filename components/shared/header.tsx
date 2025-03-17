@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import User from '../ui/user';
-import Menu from '../public/menu';
+import Menu from '../public-page/menu';
 
 const Header = () => {
   return (
     <header className="shadow-lg border-b">
-      <div className="container mx-auto flex items-center justify-start px-6">
+      <div className="container mx-auto flex items-center justify-start py-4 px-6">
         {/* logo */}
         <Link href="/" className="text-2xl font-bold py-4 px-6">
           ProtoShop

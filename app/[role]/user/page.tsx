@@ -30,20 +30,20 @@ export default function UserDashboard() {
   const params = useParams();
 
   return (
-    <div className="min-h-screen flex">
-      {/* Boczne menu */}
+    <div className="min-h-screen flex ">
       <DesktopNav />
 
-      {/* Główna zawartość */}
-      <div className="flex-1 p-8">
-        <header className="sticky top-0 z-30 flex items-center gap-4 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <div className="flex-1 p-8 justify-between ">
+        <header className="sticky top-0 z-30 flex items-center gap-16 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <MobileNav />
           <DashboardBreadcrumb />
-          <SearchInput />
-          <User />
+          <div className="ml-auto flex items-center gap-4">
+            <SearchInput />
+            <User />
+          </div>
         </header>
 
-        <h1 className="text-2xl font-bold mb-6">
+        <h1 className="text-2xl font-bold m-6">
           Welcome to your dashboard, {session?.user?.name || 'User'}!
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -73,7 +73,6 @@ function DesktopNav() {
         </NavItem>
       </nav>
 
-      {/* Ustawienia */}
       <nav className="mt-auto flex flex-col items-center gap-4 px-6 py-5">
         <Link
           href="/user/settings"
