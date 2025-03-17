@@ -63,36 +63,35 @@ export default function PublicPage() {
         template.description.toLowerCase().includes(query.toLowerCase()) ||
         template.author.toLowerCase().includes(query.toLowerCase())
     );
-  
+
     if (filters.filter1) {
       filtered = filtered.filter((template: any) =>
         template.name.includes('Template')
       );
     }
-  
+
     setFilteredTemplates(filtered);
   }, [searchParams, filters, templates]);
-  
 
   const handleFilterChange = (newFilters: FilterState) => {
     setFilters(newFilters);
   };
 
   return (
-    <div className="h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
-        <Filters onFilterChange={handleFilterChange}></Filters>
-        <div className="w-3/4 pl-4">
-          <div className="grid grid-cols-3 gap-6 mt-6">
-            <Suspense fallback={<div>Loading templates...</div>}>
+    <Suspense fallback={<div>Loading templates...</div>}> {/* Zastosowanie Suspense dla całej strony */}
+      <div className="h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
+          <Filters onFilterChange={handleFilterChange}></Filters>
+          <div className="w-3/4 pl-4">
+            <div className="grid grid-cols-3 gap-6 mt-6">
               {filteredTemplates.map((template: any) => (
                 <TemplateCard key={template.id} {...template} />
               ))}
-            </Suspense>
+            </div>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </Suspense>
   );
 }
