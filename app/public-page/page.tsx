@@ -1,5 +1,6 @@
 // pages/public-page.tsx
 'use client';
+import { Suspense } from 'react';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -84,9 +85,11 @@ export default function PublicPage() {
         <Filters onFilterChange={handleFilterChange}></Filters>
         <div className="w-3/4 pl-4">
           <div className="grid grid-cols-3 gap-6 mt-6">
-            {filteredTemplates.map((template: any) => (
-              <TemplateCard key={template.id} {...template} />
-            ))}
+            <Suspense fallback={<div>Loading templates...</div>}>
+              {filteredTemplates.map((template: any) => (
+                <TemplateCard key={template.id} {...template} />
+              ))}
+            </Suspense>
           </div>
         </div>
       </main>
