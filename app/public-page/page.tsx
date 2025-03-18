@@ -1,8 +1,7 @@
-// pages/public-page.tsx
 'use client';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/shared/header';
 import TemplateCard from '@/components/public-page/templateCard';
 import Filters from '@/components/public-page/filters';
@@ -11,17 +10,8 @@ import { FilterState } from 'types/types';
 export default function PublicPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [templates, setTemplates] = useState([]);
-  const [filteredTemplates, setFilteredTemplates] = useState([]);
-  const [filters, setFilters] = useState<FilterState>({
-    filter1: false,
-    filter2: false,
-    filter3: false,
-    filter4: false,
-    filter5: false,
-    filter6: false,
-    filter7: false
-  });
+  const [templates, setTemplates] = useState<any[]>([]);
+  const [filteredTemplates, setFilteredTemplates] = useState<any[]>([]);
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -54,19 +44,38 @@ export default function PublicPage() {
   }, []);
 
   const handleFilterChange = (newFilters: FilterState) => {
-    setFilters(newFilters);
+    const activeFilters = Object.entries(newFilters)
+      .filter(([_, value]) => value)
+      .map(([key]) => key);
+
+    if (activeFilters.length === 0) {
+      setFilteredTemplates(templates);
+      return;
+    }
+
+    const filtered = templates.filter((template) =>
+      activeFilters.every((filter) => template.categories?.includes(filter))
+    );
+
+    setFilteredTemplates(filtered);
   };
 
   return (
     <div className="h-screen flex flex-col">
       <Header />
       <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
-        <Filters onFilterChange={handleFilterChange}></Filters>
+        <Filters onFilterChange={handleFilterChange} />
         <div className="w-3/4 pl-4">
           <div className="grid grid-cols-3 gap-6 mt-6">
-            {filteredTemplates.map((template: any) => (
-              <TemplateCard key={template.id} {...template} />
-            ))}
+            {filteredTemplates.length > 0 ? (
+              filteredTemplates.map((template) => (
+                <TemplateCard key={template.id} {...template} />
+              ))
+            ) : (
+              <p className="text-center col-span-3 text-gray-400">
+                No templates found.
+              </p>
+            )}
           </div>
         </div>
       </main>

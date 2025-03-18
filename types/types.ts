@@ -23,3 +23,8 @@ export type Template = {
   author: string;
   demoLink: string;
 };
+
+export interface FilterItem {
+  name: string;
+  subfilters: string[];
+}

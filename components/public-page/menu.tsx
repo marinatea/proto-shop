@@ -10,14 +10,14 @@ const Menu = () => {
   const [openMenu, setOpenMenu] = useState<number | null>(null);
 
   return (
-    <nav className="hidden md:flex items-center space-x-6">
+    <nav className="hidden md:flex items-center space-x-6 ">
       <div
-        className="relative"
+        className="relative z-50"
         onMouseEnter={() => setOpenMenu(0)}
         onMouseLeave={() => setOpenMenu(null)}
       >
         <button
-          className="flex items-center gap-1 text-white hover:text-gray-400 transition"
+          className="flex items-center gap-1 text-white hover:text-gray-400 transition "
           onClick={(e) => e.preventDefault()}
         >
           Products
