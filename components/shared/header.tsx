@@ -7,7 +7,7 @@ import Menu from '../public-page/menu';
 
 const Header = () => {
   return (
-    <header className="shadow-lg border-b">
+    <header className="shadow-lg border-b ">
       <div className="container mx-auto flex items-center justify-start py-4 px-6">
         {/* logo */}
         <Link href="/" className="text-2xl font-bold py-4 px-6">
@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
 
         {/* nawigacja */}
-        <Menu></Menu>
+        <Menu />
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           <nav className="hidden md:flex items-center space-x-6">
             {/* linki */}
@@ -31,7 +31,7 @@ const Header = () => {
           </nav>
         </div>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-6 ">
           <Link href="/contact" className="hover:text-gray-400 transition">
             Contact
           </Link>
