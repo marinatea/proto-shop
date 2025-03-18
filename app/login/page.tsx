@@ -1,5 +1,4 @@
 'use client';
-
 import {
   Card,
   CardDescription,
@@ -8,17 +7,43 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+import router from 'next/router';
 
 const LoginPage = () => {
-  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const { data: session, status } = useSession();
 
   const handleSignIn = async () => {
-    await signIn('github', {
-      redirectTo: `${baseUrl}/user/user`
-    });
+    setLoading(true);
+    try {
+      await signIn('github', {
+        redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/user/user`
+      });
+    } catch (error) {
+      console.error('Login error:', error);
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    if (status === 'authenticated' && session?.user) {
+      if (session.user.role === 'admin') {
+        router.push('/admin/admin');
+      } else if (session.user.role === 'user') {
+        router.push('/user/user');
+      }
+    }
+  }, [status, session, router]);
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <div className="loader">loading...</div> 
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex justify-center items-start md:items-center p-8">

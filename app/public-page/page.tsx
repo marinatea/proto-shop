@@ -5,38 +5,46 @@ import { useRouter } from 'next/navigation';
 import Header from '@/components/shared/header';
 import TemplateCard from '@/components/public-page/templateCard';
 import Filters from '@/components/public-page/filters';
-import { FilterState } from 'types/types';
+import { FilterState, Template } from 'types/types';
+import Spinner from '@/components/shared/spinner';
 
 export default function PublicPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [templates, setTemplates] = useState<any[]>([]);
-  const [filteredTemplates, setFilteredTemplates] = useState<any[]>([]);
+  const [templates, setTemplates] = useState<Template[]>([]);
+  const [filteredTemplates, setFilteredTemplates] = useState<Template[]>([]);
+  const [loadingTemplates, setLoadingTemplates] = useState<boolean>(true);
 
   useEffect(() => {
+    console.log('Session:', session);
+    console.log('Status:', status);
+
+    if (status === 'loading') return;
+
     if (status === 'authenticated') {
       if (session.user.role === 'admin') {
-        router.push('/admin/admin');
+        router.replace('/admin/admin');
       } else {
-        router.push('/user/user');
+        router.replace('/user/user');
       }
-    } else {
-      router.push('/');
     }
   }, [session, status, router]);
 
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
+        setLoadingTemplates(true);
         const response = await fetch('/api/templates');
         if (!response.ok) {
           throw new Error('Failed to fetch templates');
         }
-        const data = await response.json();
+        const data: Template[] = await response.json();
         setTemplates(data);
         setFilteredTemplates(data);
       } catch (error) {
         console.error('Error fetching templates:', error);
+      } finally {
+        setLoadingTemplates(false);
       }
     };
 
@@ -59,6 +67,14 @@ export default function PublicPage() {
 
     setFilteredTemplates(filtered);
   };
+
+  if (status === 'loading') {
+    return <Spinner />;
+  }
+
+  if (status === 'authenticated') {
+    return null;
+  }
 
   return (
     <div className="h-screen flex flex-col">

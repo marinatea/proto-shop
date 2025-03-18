@@ -22,6 +22,7 @@ export type Template = {
   image: string;
   author: string;
   demoLink: string;
+  categories: string;
 };
 
 export interface FilterItem {
