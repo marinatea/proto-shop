@@ -42,7 +42,7 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'Blog'
+    useCase: 'Portfolio'
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'E-Commerce'
+    useCase: 'E-commerce'
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ export const templates = [
     cms: 'WordPress',
     authentication: 'Magic Links',
     analytics: 'Plausible',
-    useCase: 'Landing Page'
+    useCase: 'SaaS'
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'Admin Dashboard'
+    useCase: 'SaaS'
   },
   {
     id: 7,
@@ -102,7 +102,7 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'Social Media'
+    useCase: 'Portfolio'
   },
   {
     id: 8,
@@ -117,7 +117,7 @@ export const templates = [
     cms: 'WordPress',
     authentication: 'Magic Links',
     analytics: 'Plausible',
-    useCase: 'News Website'
+    useCase: 'E-commerce'
   },
   {
     id: 9,
@@ -132,7 +132,7 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'Corporate Website'
+    useCase: 'E-commerce'
   },
   {
     id: 10,
@@ -147,6 +147,6 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'Event'
+    useCase: 'E-commerce'
   }
 ];

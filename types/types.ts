@@ -16,6 +16,13 @@ export type FilterState = {
 };
 
 export type Template = {
+  analytics: any;
+  authentication: any;
+  cms: any;
+  database: any;
+  css: any;
+  framework: any;
+  useCase: any;
   id: number;
   name: string;
   description: string;
