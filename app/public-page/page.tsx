@@ -62,7 +62,7 @@ export default function PublicPage() {
     }
 
     const filtered = templates.filter((template) => {
-      return activeFilters.every((filter) => {
+      return activeFilters.some((filter) => {
         return (
           template.useCase?.toLowerCase().includes(filter.toLowerCase()) ||
           template.framework?.toLowerCase().includes(filter.toLowerCase()) ||
