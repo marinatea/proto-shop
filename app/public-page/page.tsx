@@ -13,7 +13,7 @@ export default function PublicPage() {
   const router = useRouter();
   const [templates, setTemplates] = useState<Template[]>([]);
   const [filteredTemplates, setFilteredTemplates] = useState<Template[]>([]);
-  const [loadingTemplates, setLoadingTemplates] = useState<boolean>(true);
+  const [_, setLoadingTemplates] = useState<boolean>(true);
 
   useEffect(() => {
     console.log('Session:', session);
@@ -61,9 +61,21 @@ export default function PublicPage() {
       return;
     }
 
-    const filtered = templates.filter((template) =>
-      activeFilters.every((filter) => template.categories?.includes(filter))
-    );
+    const filtered = templates.filter((template) => {
+      return activeFilters.some((filter) => {
+        return (
+          template.useCase?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.framework?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.css?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.database?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.cms?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.authentication
+            ?.toLowerCase()
+            .includes(filter.toLowerCase()) ||
+          template.analytics?.toLowerCase().includes(filter.toLowerCase())
+        );
+      });
+    });
 
     setFilteredTemplates(filtered);
   };
