@@ -84,6 +84,10 @@ export default function PublicPage() {
     return <Spinner />;
   }
 
+  if (status === 'authenticated') {
+    return null;
+  }
+
   return (
     <div className="h-screen flex flex-col">
       <Header />
