@@ -5,6 +5,10 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   console.log(`Middleware processing path: ${path}`);
 
+  if (path.startsWith('/template/')) {
+    return NextResponse.next();
+  }
+
   if (path === '/') {
     return NextResponse.next();
   }
@@ -33,5 +37,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'] // Wyklucza api, next i inne zasoby statyczne
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|img|public).*)' // Dodajemy 'public' do matcher
+  ]
 };
