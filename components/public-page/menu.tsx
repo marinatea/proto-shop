@@ -10,7 +10,7 @@ const Menu = () => {
   const [openMenu, setOpenMenu] = useState<number | null>(null);
 
   return (
-    <nav className="hidden md:flex items-center space-x-6 ">
+    <nav className="hidden md:flex items-center space-x-6 z-10">
       <div
         className="relative z-50"
         onMouseEnter={() => setOpenMenu(0)}
