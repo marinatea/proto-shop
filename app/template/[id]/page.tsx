@@ -1,5 +1,6 @@
 'use client';
 
+import Header from '@/components/shared/header';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Template } from 'types/types';
@@ -35,23 +36,28 @@ export default function TemplateDetail() {
   if (!template) return <div>Template not found.</div>;
 
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-semibold">{template?.name}</h1>
-      <img
-        src={template?.image}
-        alt={template?.name}
-        className="w-full h-64 object-cover my-4"
-      />
-      <p>{template?.description}</p>
-      <p className="mt-4 text-sm text-gray-500">Created by {template.author}</p>
-      <a
-        href={template?.demoLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 text-blue-400 hover:text-blue-500"
-      >
-        View Demo
-      </a>
-    </div>
+    <>
+      <div className="p-4 grid grid-cols-2 gap-x-12 ">
+        <h1 className="text-3xl font-semibold">{template?.name}</h1>
+
+        <p>{template?.description}</p>
+        <img
+          src={template?.image}
+          alt={template?.name}
+          className="w-full h-64 object-cover my-4"
+        />
+        <p className="mt-4 text-sm text-gray-500">
+          Created by {template.author}
+        </p>
+        <a
+          href={template?.demoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 text-blue-400 hover:text-blue-500"
+        >
+          View Demo
+        </a>
+      </div>
+    </>
   );
 }

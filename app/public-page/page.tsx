@@ -90,7 +90,6 @@ export default function PublicPage() {
 
   return (
     <div className="h-screen flex flex-col">
-      <Header />
       <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
         <Filters onFilterChange={handleFilterChange} />
         <div className="w-3/4 pl-4">
