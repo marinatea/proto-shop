@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import router from 'next/router';
+import Spinner from '@/components/shared/spinner';
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ const LoginPage = () => {
   if (status === 'loading') {
     return (
       <div className="min-h-screen flex justify-center items-center">
-        <div className="loader">loading...</div> 
+        <Spinner/>
       </div>
     );
   }

@@ -2,7 +2,8 @@ export const templates = [
   {
     id: 1,
     name: 'Business Dashboard',
-    description: 'This is a short description of Template 1.',
+    description:
+      'Idealny szablon dla każdego kota biznesmena. Wszystkie dane w jednym miejscu, nawet jeśli to tylko kotki w biurze.',
     image: '/img/cat1.jpg',
     author: 'Sir Whiskers McFluffington',
     demoLink: 'https://example.com',
@@ -12,12 +13,14 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'SaaS'
+    useCase: 'SaaS',
+    price: '76'
   },
   {
     id: 2,
     name: 'Portfolio Template',
-    description: 'This is a short description of Template 2.',
+    description:
+      'Dla każdego, kto chce pokazać swoje umiejętności… a może po prostu chce, żeby wszyscy podziwiali jego kocie portfolio.',
     image: '/img/cat2.jpg',
     author: 'Princess Purrington',
     demoLink: 'https://example.com',
@@ -27,12 +30,14 @@ export const templates = [
     cms: 'WordPress',
     authentication: 'Magic Links',
     analytics: 'Plausible',
-    useCase: 'Portfolio'
+    useCase: 'Portfolio',
+    price: '111'
   },
   {
     id: 3,
     name: 'Blog Template',
-    description: 'This is a short description of Template 3.',
+    description:
+      'Jeśli masz coś do powiedzenia – ten szablon pomoże ci to wykrzyczeć… albo napisać na klawiaturze.',
     image: '/img/cat3.jpg',
     author: 'Lord Fluffernutter',
     demoLink: 'https://example.com',
@@ -42,12 +47,14 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'Portfolio'
+    useCase: 'Portfolio',
+    price: '234'
   },
   {
     id: 4,
     name: 'E-Commerce Template',
-    description: 'This is a short description of Template 4.',
+    description:
+      'Chcesz sprzedawać rzeczy online? Z tym szablonem możesz zacząć swój sklep... nawet jeśli twoje produkty to tylko zabawki dla kota.',
     image: '/img/cat4.jpg',
     author: 'Captain Meowington',
     demoLink: 'https://example.com',
@@ -57,12 +64,14 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'E-commerce'
+    useCase: 'E-commerce',
+    price: '352'
   },
   {
     id: 5,
     name: 'Landing Page Template',
-    description: 'This is a short description of Template 5.',
+    description:
+      'Prosty, elegancki i gotowy na wszelkie przygody. Idealny do prezentacji twojej kociej firmy. Zaskocz swoich klientów już od pierwszego kliknięcia!',
     image: '/img/cat5.jpg',
     author: 'Countess Mewina von Purr',
     demoLink: 'https://example.com',
@@ -72,12 +81,14 @@ export const templates = [
     cms: 'WordPress',
     authentication: 'Magic Links',
     analytics: 'Plausible',
-    useCase: 'SaaS'
+    useCase: 'SaaS',
+    price: '99'
   },
   {
     id: 6,
     name: 'Admin Dashboard',
-    description: 'This is a short description of Template 6.',
+    description:
+      'Zarządzaj wszystkim jak prawdziwy król administracji. Tylko pamiętaj, że koty rządzą wszystkim w tym biurze!',
     image: '/img/cat6.jpg',
     author: 'Baroness Furrington',
     demoLink: 'https://example.com',
@@ -87,12 +98,14 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'SaaS'
+    useCase: 'SaaS',
+    price: '34'
   },
   {
     id: 7,
     name: 'Social Media Template',
-    description: 'This is a short description of Template 7.',
+    description:
+      'Idealny szablon do tworzenia społeczności online – bo każdy kot zasługuje na własną stronę na Instagramie.',
     image: '/img/cat7.jpg',
     author: 'Meowster von Snugglepaws',
     demoLink: 'https://example.com',
@@ -102,12 +115,14 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'Portfolio'
+    useCase: 'Portfolio',
+    price: '653'
   },
   {
     id: 8,
     name: 'News Website Template',
-    description: 'This is a short description of Template 8.',
+    description:
+      'Przekształć swój kotowy portal informacyjny w coś profesjonalnego. Idealny dla tych, którzy chcą być na bieżąco z najnowszymi plotkami!',
     image: '/img/cat8.jpg',
     author: 'Lady Purrfect',
     demoLink: 'https://example.com',
@@ -117,12 +132,14 @@ export const templates = [
     cms: 'WordPress',
     authentication: 'Magic Links',
     analytics: 'Plausible',
-    useCase: 'E-commerce'
+    useCase: 'E-commerce',
+    price: '120'
   },
   {
     id: 9,
     name: 'Corporate Website Template',
-    description: 'This is a short description of Template 9.',
+    description:
+      'Wydajesz się profesjonalny, ale Twoje serce bije jak kot w biurze. Z tym szablonem jesteś gotowy na korporacyjne wyzwania.',
     image: '/img/cat9.jpg',
     author: 'Sir Meowington III',
     demoLink: 'https://example.com',
@@ -132,12 +149,14 @@ export const templates = [
     cms: 'Sanity',
     authentication: 'OAuth',
     analytics: 'Posthog',
-    useCase: 'E-commerce'
+    useCase: 'E-commerce',
+    price: '50'
   },
   {
     id: 10,
     name: 'Event Template',
-    description: 'This is a short description of Template 10.',
+    description:
+      'Jeśli planujesz imprezę, to jest szablon dla Ciebie. Twoje wydarzenie będzie bardziej eleganckie niż sesja zdjęciowa kota w garniturze',
     image: '/img/cat10.jpg',
     author: 'Baron von Purrsley',
     demoLink: 'https://example.com',
@@ -147,6 +166,7 @@ export const templates = [
     cms: 'Strapi',
     authentication: 'JWT',
     analytics: 'Google Analytics',
-    useCase: 'E-commerce'
+    useCase: 'E-commerce',
+    price: '100'
   }
 ];

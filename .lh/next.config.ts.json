@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1737990260835,
@@ -36,6 +36,10 @@
                 {
                     "date": 1740418372269,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n import { NextConfig } from 'next';\n \n const nextConfig: NextConfig = {\n-  // Tymczasowo wyłącz sprawdzanie typu ścieżek dla debugowania\n   typescript: {\n     ignoreBuildErrors: true,\n   },\n   images: {\n     domains: ['avatars.githubusercontent.com'], // Dodanie domeny, z której będą ładowane obrazki\n   },\n };\n \n-export default nextConfig;\n\\ No newline at end of file\n+export default nextConfig;\n"
+                },
+                {
+                    "date": 1742981743074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,14 @@\n   typescript: {\n     ignoreBuildErrors: true,\n   },\n   images: {\n-    domains: ['avatars.githubusercontent.com'], // Dodanie domeny, z której będą ładowane obrazki\n+    remotePatterns: [\n+      {\n+        protocol: 'https',\n+        hostname: 'avatars.githubusercontent.com',\n+      },\n+    ],\n   },\n };\n \n export default nextConfig;\n"
                 }
             ],
             "date": 1737990260835,
