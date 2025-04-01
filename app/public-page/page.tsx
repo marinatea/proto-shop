@@ -93,7 +93,7 @@ export default function PublicPage() {
       <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
         <Filters onFilterChange={handleFilterChange} />
         <div className="w-3/4 pl-4">
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             {filteredTemplates.length > 0 ? (
               filteredTemplates.map((template) => (
                 <TemplateCard key={template.id} {...template} />

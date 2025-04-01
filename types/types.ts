@@ -16,20 +16,22 @@ export type FilterState = {
 };
 
 export type Template = {
-  analytics: string;
-  authentication: string;
-  cms: string;
-  database: string;
-  css: string;
-  framework: string;
-  useCase: string;
   id: number;
   name: string;
   description: string;
   image: string;
   author: string;
   demoLink: string;
-  categories: string;
+  framework: string;
+  css: string;
+  database: string;
+  cms: string;
+  authentication: string;
+  analytics: string;
+  useCase: string;
+  price: number;
+  availableAt: string;
+  status: 'active' | 'inactive';
 };
 
 export interface FilterItem {
