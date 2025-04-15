@@ -24,7 +24,7 @@ const TemplateCard = ({
       <div className="relative">
         {session?.user?.name === author && (
           <Link
-            href={`/user/${session.user.name}/products/${id}/edit`}
+            href={`/user/user/products/${id}/edit`}
             className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
           >
             <Pencil className="w-5 h-5" />
