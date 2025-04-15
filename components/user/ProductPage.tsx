@@ -150,8 +150,8 @@ export default function ProductPage() {
             </div>
           </div>
           {session?.user && (
-            <Link href={`/user/user/products/${id}/buy`}>
-              <Button className="text-xl w-full">Buy 🛒</Button>
+            <Link href={`/user/user/products/${id}/basket`}>
+              <Button className="text-xl w-full">Add to 🛒</Button>
             </Link>
           )}
         </div>

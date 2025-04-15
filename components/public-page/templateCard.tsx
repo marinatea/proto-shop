@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Template } from 'types/types';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import { Pencil } from 'lucide-react';
 
 const TemplateCard = ({
   id,
@@ -19,25 +20,34 @@ const TemplateCard = ({
     : `/products/${id}`;
 
   return (
-    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col h-full ">
+    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col h-full">
+      <div className="relative">
+        {session?.user && (
+          <Link
+            href={`/user/user/products/${id}/edit`}
+            className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
+          >
+            <Pencil className="w-5 h-5" />
+          </Link>
+        )}
+
+        {image ? (
+          <Image
+            src={typeof image === 'string' ? image : URL.createObjectURL(image)}
+            alt={name}
+            width={300}
+            height={300}
+            className="w-full h-40 object-cover"
+          />
+        ) : (
+          <div className="w-full h-40 bg-gray-300 flex justify-center items-center">
+            <span>No Image</span>
+          </div>
+        )}
+      </div>
+
       <Link href={productLink} passHref>
         <div className="cursor-pointer flex-grow">
-          {image && (
-            <Image
-              src={
-                typeof image === 'string' ? image : URL.createObjectURL(image)
-              }
-              alt={name}
-              width={300}
-              height={300}
-              className="w-full h-40 object-cover"
-            />
-          )}
-          {!image && (
-            <div className="w-full h-40 bg-gray-300 flex justify-center items-center">
-              <span>No Image</span>
-            </div>
-          )}
           <div className="p-4 flex flex-col flex-grow gap-4">
             <h3 className="text-xl font-semibold">{name}</h3>
             <p className="text-sm text-gray-400 flex-grow">{description}</p>
@@ -58,7 +68,6 @@ const TemplateCard = ({
           Demo
         </a>
       )}
-      
     </div>
   );
 };

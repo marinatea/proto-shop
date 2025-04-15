@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import User from '../ui/user';
 import Menu from '../public-page/menu';
+import { ShoppingCart } from 'lucide-react';
+import { useSession } from 'next-auth/react';
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <header className="shadow-lg border-b ">
       <div className="container mx-auto flex items-center justify-start py-4 px-6">
@@ -38,7 +41,12 @@ const Header = () => {
           <Link href="/dashboard" className="hover:text-gray-400 transition">
             Dashboard
           </Link>
-          {/* logowanie */}
+          {session?.user && (
+            <Link href="/busket" className="hover:text-gray-400 transition">
+              <ShoppingCart className="w-5 h-5" />{' '}
+            </Link>
+          )}
+
           <div className="relative">
             <User />
           </div>
