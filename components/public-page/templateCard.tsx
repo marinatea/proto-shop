@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Template } from 'types/types';
 import Image from 'next/image';
-import { useSession } from 'next-auth/react'; // Dodanie useSession
+import { useSession } from 'next-auth/react';
 
 const TemplateCard = ({
   id,
@@ -58,6 +58,7 @@ const TemplateCard = ({
           Demo
         </a>
       )}
+      
     </div>
   );
 };

@@ -103,7 +103,7 @@ export default function NewProductModal({
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
-    if (/^[0-9.,]*$/.test(value)) {
+    if (/^[0-9.]*$/.test(value)) {
       setPrice(value);
       setError('');
     } else {
