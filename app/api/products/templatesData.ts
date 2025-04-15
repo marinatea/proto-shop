@@ -14,7 +14,7 @@ export const products = [
     authentication: 'JWT',
     analytics: 'Google Analytics',
     useCase: 'SaaS',
-    price: '76'
+    price: '76.00'
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const products = [
     authentication: 'Magic Links',
     analytics: 'Plausible',
     useCase: 'Portfolio',
-    price: '111'
+    price: '111.00'
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ export const products = [
     authentication: 'OAuth',
     analytics: 'Posthog',
     useCase: 'Portfolio',
-    price: '234'
+    price: '234.00'
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ export const products = [
     authentication: 'JWT',
     analytics: 'Google Analytics',
     useCase: 'E-commerce',
-    price: '352'
+    price: '352.00'
   },
   {
     id: 5,
@@ -82,7 +82,7 @@ export const products = [
     authentication: 'Magic Links',
     analytics: 'Plausible',
     useCase: 'SaaS',
-    price: '99'
+    price: '99.00'
   },
   {
     id: 6,
@@ -99,7 +99,7 @@ export const products = [
     authentication: 'OAuth',
     analytics: 'Posthog',
     useCase: 'SaaS',
-    price: '34'
+    price: '34.00'
   },
   {
     id: 7,
@@ -116,7 +116,7 @@ export const products = [
     authentication: 'JWT',
     analytics: 'Google Analytics',
     useCase: 'Portfolio',
-    price: '653'
+    price: '653.00'
   },
   {
     id: 8,
@@ -133,7 +133,7 @@ export const products = [
     authentication: 'Magic Links',
     analytics: 'Plausible',
     useCase: 'E-commerce',
-    price: '120'
+    price: '120.00'
   },
   {
     id: 9,
@@ -150,7 +150,7 @@ export const products = [
     authentication: 'OAuth',
     analytics: 'Posthog',
     useCase: 'E-commerce',
-    price: '50'
+    price: '50.00'
   },
   {
     id: 10,
@@ -167,6 +167,6 @@ export const products = [
     authentication: 'JWT',
     analytics: 'Google Analytics',
     useCase: 'E-commerce',
-    price: '100'
+    price: '100.00'
   }
 ];

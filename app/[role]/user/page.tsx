@@ -21,6 +21,7 @@ import { Settings } from '../../../components/ui/settings';
 import TemplateCard from '@/components/public-page/templateCard';
 import { products } from 'app/api/products/templatesData';
 import NewProductModal from '@/components/user/newProductModal';
+import Nav from '@/components/user/Nav';
 
 export default function UserDashboard() {
   const { data: session } = useSession();
@@ -78,11 +79,10 @@ export default function UserDashboard() {
 
   return (
     <div className="min-h-screen flex">
-      <DesktopNav />
+      <Nav />
 
       <div className="flex-1 p-8 justify-between">
         <header className="sticky top-0 z-30 flex items-center gap-16 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-          <MobileNav />
           <DashboardBreadcrumb />
           <div className="ml-auto flex items-center gap-4">
             <SearchInput />
@@ -105,71 +105,6 @@ export default function UserDashboard() {
         </div>
       </div>
     </div>
-  );
-}
-
-function DesktopNav() {
-  return (
-    <aside className="sticky inset-y-0 left-0 z-10 bg-background border-r hidden sm:flex flex-col">
-      <nav className="flex flex-col items-start gap-4 px-6 py-5">
-        <NavItem href="/user/user" label="Dashboard">
-          <Home className="h-5 w-5" />
-        </NavItem>
-        <NavItem href="/user/orders" label="Orders">
-          <ShoppingCart className="h-5 w-5" />
-        </NavItem>
-        <NavItem href="/user/analytics" label="Analytics">
-          <LineChart className="h-5 w-5" />
-        </NavItem>
-      </nav>
-      <nav className="mt-auto flex flex-col items-center gap-4 px-6 py-5">
-        <Link
-          href="/user/settings"
-          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Settings className="h-5 w-5" />
-          <span className="sr-only">Settings</span>
-        </Link>
-      </nav>
-    </aside>
-  );
-}
-
-function MobileNav() {
-  return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button size="icon" variant="outline" className="sm:hidden">
-          <PanelLeft className="h-5 w-5" />
-          <span className="sr-only">Toggle Menu</span>
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="left" className="sm:max-w-xs">
-        <nav className="grid gap-6 text-lg font-medium">
-          <Link
-            href="/user/user"
-            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-          >
-            <Home className="h-5 w-5" />
-            Dashboard
-          </Link>
-          <Link
-            href="/user/orders"
-            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            Orders
-          </Link>
-          <Link
-            href="/user/analytics"
-            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-          >
-            <LineChart className="h-5 w-5" />
-            Analytics
-          </Link>
-        </nav>
-      </SheetContent>
-    </Sheet>
   );
 }
 
