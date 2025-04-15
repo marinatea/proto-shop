@@ -19,7 +19,6 @@ export type Template = {
   id: number;
   name: string;
   description: string;
-  image: string;
   author: string;
   demoLink: string;
   framework: string;
@@ -29,9 +28,9 @@ export type Template = {
   authentication: string;
   analytics: string;
   useCase: string;
-  price: number;
+  price: string;
   availableAt: string;
-  status: 'active' | 'inactive';
+  image: string | File;
 };
 
 export interface FilterItem {

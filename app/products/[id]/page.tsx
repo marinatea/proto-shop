@@ -5,20 +5,24 @@ import { useEffect, useState } from 'react';
 import { Template } from 'types/types';
 import { FaHeart, FaShareAlt } from 'react-icons/fa';
 import Spinner from '@/components/shared/spinner';
+import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
-export default function TemplateDetail() {
+export default function ProductPage() {
   const { id } = useParams();
   const [template, setTemplate] = useState<Template | null>(null);
   const [loading, setLoading] = useState(true);
   const [likes, setLikes] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     if (!id) return;
 
     const fetchTemplate = async () => {
       try {
-        const response = await fetch(`/api/templates/${id}`);
+        const response = await fetch(`/api/products/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch template');
         }
@@ -57,8 +61,7 @@ export default function TemplateDetail() {
     }
   };
 
-  if (loading)
-    return <Spinner/>;
+  if (loading) return <Spinner />;
 
   if (!template)
     return (
@@ -68,15 +71,16 @@ export default function TemplateDetail() {
   return (
     <div className="container p-8 bg-gray-900 text-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 ">
-        <div className="w-full">
-          <img
-            src={template.image}
-            alt={template.name}
-            width={500}
-            height={300}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
+      <div className="w-full">
+  <img
+    src={template.image instanceof File ? URL.createObjectURL(template.image) : template.image}
+    alt={template.name}
+    width={500}
+    height={300}
+    className="rounded-lg shadow-lg"
+  />
+</div>
+
 
         <div>
           <h1 className="text-4xl font-bold mb-4">{template.name}</h1>
@@ -89,7 +93,7 @@ export default function TemplateDetail() {
               className="text-blue-400 hover:text-blue-500"
               onClick={() => setShowDetails(!showDetails)}
             >
-              Więcej
+              See more...
             </button>
             {showDetails && (
               <div className="mt-2 p-4 bg-gray-800 rounded-lg shadow-lg">
@@ -106,7 +110,6 @@ export default function TemplateDetail() {
             <span className="text-xl font-semibold text-white-400">
               ${template.price}
             </span>
-            <span></span>
           </div>
 
           <div className="flex gap-4 mt-6">
@@ -121,7 +124,7 @@ export default function TemplateDetail() {
               className="flex items-center gap-2 bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-600"
               onClick={handleShare}
             >
-              <FaShareAlt /> Udostępnij
+              <FaShareAlt /> Share
             </button>
           </div>
 
@@ -131,8 +134,20 @@ export default function TemplateDetail() {
             rel="noopener noreferrer"
             className="mt-6 inline-block text-blue-400 hover:text-blue-500"
           >
-            Zobacz Demo →
+            See Demo →
           </a>
+
+          <div className="mt-6">
+            {session?.user ? (
+              <Link href={`/user/products/${id}/edit`}>
+                <Button variant="outline" className="w-auto">
+                  Edit Product
+                </Button>
+              </Link>
+            ) : (
+              <span></span>
+            )}
+          </div>
         </div>
       </div>
     </div>

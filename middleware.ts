@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   console.log(`Middleware processing path: ${path}`);
 
-  if (path.startsWith('/template/')) {
+  if (path.startsWith('/products/')) {
     return NextResponse.next();
   }
 

@@ -13,12 +13,8 @@ export default function PublicPage() {
   const router = useRouter();
   const [templates, setTemplates] = useState<Template[]>([]);
   const [filteredTemplates, setFilteredTemplates] = useState<Template[]>([]);
-  const [_, setLoadingTemplates] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log('Session:', session);
-    console.log('Status:', status);
-
     if (status === 'loading') return;
 
     if (status === 'authenticated') {
@@ -33,8 +29,7 @@ export default function PublicPage() {
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
-        setLoadingTemplates(true);
-        const response = await fetch('/api/templates');
+        const response = await fetch('/api/products');
         if (!response.ok) {
           throw new Error('Failed to fetch templates');
         }
@@ -43,8 +38,6 @@ export default function PublicPage() {
         setFilteredTemplates(data);
       } catch (error) {
         console.error('Error fetching templates:', error);
-      } finally {
-        setLoadingTemplates(false);
       }
     };
 
@@ -82,10 +75,6 @@ export default function PublicPage() {
 
   if (status === 'loading') {
     return <Spinner />;
-  }
-
-  if (status === 'authenticated') {
-    return null;
   }
 
   return (

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { templates } from './templatesData';
+import { products } from './templatesData';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   const id = url.searchParams.get('id');
 
   if (id) {
-    const template = templates.find(
+    const template = products.find(
       (template) => template.id.toString() === id
     );
     if (template) {
@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     }
   }
 
-  const filteredTemplates = templates.filter(
+  const filteredTemplates = products.filter(
     (template) =>
       template.name.toLowerCase().includes(query) ||
       template.description.toLowerCase().includes(query) ||

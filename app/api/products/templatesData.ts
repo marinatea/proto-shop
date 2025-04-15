@@ -1,4 +1,4 @@
-export const templates = [
+export const products = [
   {
     id: 1,
     name: 'Business Dashboard',
@@ -56,7 +56,7 @@ export const templates = [
     description:
       'Chcesz sprzedawać rzeczy online? Z tym szablonem możesz zacząć swój sklep... nawet jeśli twoje produkty to tylko zabawki dla kota.',
     image: '/img/cat4.jpg',
-    author: 'Captain Meowington',
+    author: 'marina-karpova',
     demoLink: 'https://example.com',
     framework: 'Next.js',
     css: 'Tailwind',
