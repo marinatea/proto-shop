@@ -1,30 +1,16 @@
 'use client';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Header from '@/components/shared/header';
 import TemplateCard from '@/components/public-page/templateCard';
 import Filters from '@/components/public-page/filters';
 import { FilterState, Template } from 'types/types';
 import Spinner from '@/components/shared/spinner';
+import Nav from '@/components/user/Nav';
 
 export default function PublicPage() {
   const { data: session, status } = useSession();
-  const router = useRouter();
   const [templates, setTemplates] = useState<Template[]>([]);
   const [filteredTemplates, setFilteredTemplates] = useState<Template[]>([]);
-
-  useEffect(() => {
-    if (status === 'loading') return;
-
-    if (status === 'authenticated') {
-      if (session.user.role === 'admin') {
-        router.replace('/admin/admin');
-      } else {
-        router.replace('/user/user');
-      }
-    }
-  }, [session, status, router]);
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -78,10 +64,11 @@ export default function PublicPage() {
   }
 
   return (
-    <div className="h-screen flex flex-col">
-      <main className="flex-grow flex bg-gray-900 text-white shadow-lg py-12 px-12">
+    <div className="min-h-screen flex">
+      {session && <Nav />}
+      <main className="flex-grow bg-gray-900 text-white shadow-lg py-8 px-8 flex flex-row">
         <Filters onFilterChange={handleFilterChange} />
-        <div className="w-3/4 pl-4">
+        <div className="w-full pl-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             {filteredTemplates.length > 0 ? (
               filteredTemplates.map((template) => (

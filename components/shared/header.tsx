@@ -11,17 +11,14 @@ const Header = () => {
   const { data: session } = useSession();
   return (
     <header className="shadow-lg border-b ">
-      <div className="container mx-auto flex items-center justify-start py-4 px-6">
-        {/* logo */}
+      <div className=" mx-auto flex items-center justify-start py-4 px-6">
         <Link href="/" className="text-2xl font-bold py-4 px-6">
           ProtoShop
         </Link>
 
-        {/* nawigacja */}
-        <Menu />
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           <nav className="hidden md:flex items-center space-x-6">
-            {/* linki */}
+            <Menu />
             <Link href="/enterprise" className="hover:text-gray-400 transition">
               Enterprise
             </Link>
@@ -42,8 +39,8 @@ const Header = () => {
             Dashboard
           </Link>
           {session?.user && (
-            <Link href="/busket" className="hover:text-gray-400 transition">
-              <ShoppingCart className="w-5 h-5" />{' '}
+            <Link href="/cart" className="hover:text-gray-400 transition">
+              <ShoppingCart className="w-6 h-6" />
             </Link>
           )}
 

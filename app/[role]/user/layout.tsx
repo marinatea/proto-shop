@@ -1,5 +1,6 @@
 // app/[role]/user/layout.tsx
 
+import Header from '@/components/shared/header';
 import { Providers } from 'app/providers';
 
 export default function UserLayout({
