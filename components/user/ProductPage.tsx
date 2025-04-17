@@ -142,8 +142,8 @@ export default function ProductPage() {
             </a>
 
             <div className="mt-6">
-              {session?.user && (
-                <Link href={`/user/user/products/${id}/edit`}>
+              {session?.user?.name === template.author && (
+                <Link href={`/user/${session.user.name}/products/${id}/edit`}>
                   <Button variant="secondary">Edit Product</Button>
                 </Link>
               )}

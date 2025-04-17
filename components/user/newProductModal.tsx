@@ -133,7 +133,7 @@ export default function NewProductModal({
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Author"
@@ -147,14 +147,14 @@ export default function NewProductModal({
               value={price}
               onChange={handlePriceChange}
               required
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             <Input
               placeholder="Description (optional)"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Image URL (optional)"
@@ -165,49 +165,49 @@ export default function NewProductModal({
               placeholder="Demo Link (optional)"
               value={demoLink}
               onChange={(e) => setDemoLink(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Framework (optional)"
               value={framework}
               onChange={(e) => setFramework(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="CSS (optional)"
               value={css}
               onChange={(e) => setCss(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Database (optional)"
               value={database}
               onChange={(e) => setDatabase(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="CMS (optional)"
               value={cms}
               onChange={(e) => setCms(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Authentication (optional)"
               value={authentication}
               onChange={(e) => setAuthentication(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Analytics (optional)"
               value={analytics}
               onChange={(e) => setAnalytics(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
             <Input
               placeholder="Use Case (optional)"
               value={useCase}
               onChange={(e) => setUseCase(e.target.value)}
-              className="bg-gray-200 text-xl"
+              className="bg-gray-200 text-xl text-black"
             />
 
             <label className="block mt-2 w-full text-xl border border-solid border-gray-500 text-center py-3 rounded cursor-pointer hover:bg-gray-800 transition">
