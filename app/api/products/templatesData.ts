@@ -1,0 +1,172 @@
+export const products = [
+  {
+    id: 1,
+    name: 'Business Dashboard',
+    description:
+      'Idealny szablon dla każdego kota biznesmena. Wszystkie dane w jednym miejscu, nawet jeśli to tylko kotki w biurze.',
+    image: '/img/cat1.jpg',
+    author: 'Sir Whiskers McFluffington',
+    demoLink: 'https://example.com',
+    framework: 'Next.js',
+    css: 'Tailwind',
+    database: 'PostgreSQL',
+    cms: 'Strapi',
+    authentication: 'JWT',
+    analytics: 'Google Analytics',
+    useCase: 'SaaS',
+    price: '76.00'
+  },
+  {
+    id: 2,
+    name: 'Portfolio Template',
+    description:
+      'Dla każdego, kto chce pokazać swoje umiejętności… a może po prostu chce, żeby wszyscy podziwiali jego kocie portfolio.',
+    image: '/img/cat2.jpg',
+    author: 'Princess Purrington',
+    demoLink: 'https://example.com',
+    framework: 'React',
+    css: 'Bootstrap',
+    database: 'MongoDB',
+    cms: 'WordPress',
+    authentication: 'Magic Links',
+    analytics: 'Plausible',
+    useCase: 'Portfolio',
+    price: '111.00'
+  },
+  {
+    id: 3,
+    name: 'Blog Template',
+    description:
+      'Jeśli masz coś do powiedzenia – ten szablon pomoże ci to wykrzyczeć… albo napisać na klawiaturze.',
+    image: '/img/cat3.jpg',
+    author: 'Lord Fluffernutter',
+    demoLink: 'https://example.com',
+    framework: 'Vue',
+    css: 'CSS Modules',
+    database: 'Firebase',
+    cms: 'Sanity',
+    authentication: 'OAuth',
+    analytics: 'Posthog',
+    useCase: 'Portfolio',
+    price: '234.00'
+  },
+  {
+    id: 4,
+    name: 'E-Commerce Template',
+    description:
+      'Chcesz sprzedawać rzeczy online? Z tym szablonem możesz zacząć swój sklep... nawet jeśli twoje produkty to tylko zabawki dla kota.',
+    image: '/img/cat4.jpg',
+    author: 'marina-karpova',
+    demoLink: 'https://example.com',
+    framework: 'Next.js',
+    css: 'Tailwind',
+    database: 'PostgreSQL',
+    cms: 'Strapi',
+    authentication: 'JWT',
+    analytics: 'Google Analytics',
+    useCase: 'E-commerce',
+    price: '352.00'
+  },
+  {
+    id: 5,
+    name: 'Landing Page Template',
+    description:
+      'Prosty, elegancki i gotowy na wszelkie przygody. Idealny do prezentacji twojej kociej firmy. Zaskocz swoich klientów już od pierwszego kliknięcia!',
+    image: '/img/cat5.jpg',
+    author: 'Countess Mewina von Purr',
+    demoLink: 'https://example.com',
+    framework: 'React',
+    css: 'Bootstrap',
+    database: 'MongoDB',
+    cms: 'WordPress',
+    authentication: 'Magic Links',
+    analytics: 'Plausible',
+    useCase: 'SaaS',
+    price: '99.00'
+  },
+  {
+    id: 6,
+    name: 'Admin Dashboard',
+    description:
+      'Zarządzaj wszystkim jak prawdziwy król administracji. Tylko pamiętaj, że koty rządzą wszystkim w tym biurze!',
+    image: '/img/cat6.jpg',
+    author: 'Baroness Furrington',
+    demoLink: 'https://example.com',
+    framework: 'Vue',
+    css: 'CSS Modules',
+    database: 'Firebase',
+    cms: 'Sanity',
+    authentication: 'OAuth',
+    analytics: 'Posthog',
+    useCase: 'SaaS',
+    price: '34.00'
+  },
+  {
+    id: 7,
+    name: 'Social Media Template',
+    description:
+      'Idealny szablon do tworzenia społeczności online – bo każdy kot zasługuje na własną stronę na Instagramie.',
+    image: '/img/cat7.jpg',
+    author: 'Meowster von Snugglepaws',
+    demoLink: 'https://example.com',
+    framework: 'Next.js',
+    css: 'Tailwind',
+    database: 'PostgreSQL',
+    cms: 'Strapi',
+    authentication: 'JWT',
+    analytics: 'Google Analytics',
+    useCase: 'Portfolio',
+    price: '653.00'
+  },
+  {
+    id: 8,
+    name: 'News Website Template',
+    description:
+      'Przekształć swój kotowy portal informacyjny w coś profesjonalnego. Idealny dla tych, którzy chcą być na bieżąco z najnowszymi plotkami!',
+    image: '/img/cat8.jpg',
+    author: 'Lady Purrfect',
+    demoLink: 'https://example.com',
+    framework: 'React',
+    css: 'Bootstrap',
+    database: 'MongoDB',
+    cms: 'WordPress',
+    authentication: 'Magic Links',
+    analytics: 'Plausible',
+    useCase: 'E-commerce',
+    price: '120.00'
+  },
+  {
+    id: 9,
+    name: 'Corporate Website Template',
+    description:
+      'Wydajesz się profesjonalny, ale Twoje serce bije jak kot w biurze. Z tym szablonem jesteś gotowy na korporacyjne wyzwania.',
+    image: '/img/cat9.jpg',
+    author: 'Sir Meowington III',
+    demoLink: 'https://example.com',
+    framework: 'Vue',
+    css: 'CSS Modules',
+    database: 'Firebase',
+    cms: 'Sanity',
+    authentication: 'OAuth',
+    analytics: 'Posthog',
+    useCase: 'E-commerce',
+    price: '50.00'
+  },
+  {
+    id: 10,
+    name: 'Event Template',
+    description:
+      'Jeśli planujesz imprezę, to jest szablon dla Ciebie. Twoje wydarzenie będzie bardziej eleganckie niż sesja zdjęciowa kota w garniturze',
+    image: '/img/cat10.jpg',
+    author: 'Baron von Purrsley',
+    demoLink: 'https://example.com',
+    framework: 'Next.js',
+    css: 'Tailwind',
+    database: 'PostgreSQL',
+    cms: 'Strapi',
+    authentication: 'JWT',
+    analytics: 'Google Analytics',
+    useCase: 'E-commerce',
+    price: '100.00'
+  }
+];

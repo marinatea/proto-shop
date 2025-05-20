@@ -11,11 +11,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import Spinner from '../shared/spinner';
 
 export function User() {
   const { data: session, status } = useSession();
 
-  if (status === 'loading') return <div>Loading...</div>;
+  if (status === 'loading') return <Spinner/>;
 
   if (!session) {
     return (
