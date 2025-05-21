@@ -132,7 +132,7 @@ export default function ProductPage() {
             </div>
 
             <a
-              href={template.acf.demoLink}
+              href={template.acf.demo_link}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-block text-blue-400 hover:text-blue-500"
