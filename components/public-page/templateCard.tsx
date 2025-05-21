@@ -4,14 +4,14 @@ import { Template } from 'types/types';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { Pencil } from 'lucide-react';
+import { products } from '@/lib/db';
 
 const TemplateCard = ({
   id,
   name,
   description,
-  image,
-  author,
-  demoLink
+  images,
+  acf: { author, demoLink }
 }: Template) => {
   const { data: session } = useSession();
 
@@ -31,9 +31,9 @@ const TemplateCard = ({
           </Link>
         )}
 
-        {image ? (
+        {images[0] ? (
           <Image
-            src={typeof image === 'string' ? image : URL.createObjectURL(image)}
+            src={images[0].src}
             alt={name}
             width={300}
             height={300}
@@ -50,7 +50,10 @@ const TemplateCard = ({
         <div className="cursor-pointer flex-grow">
           <div className="p-4 flex flex-col flex-grow gap-4">
             <h3 className="text-xl font-semibold">{name}</h3>
-            <p className="text-sm text-gray-400 flex-grow">{description}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: description }}
+              className="text-sm text-gray-400 flex-grow"
+            />
             <span className="text-xs text-gray-500 mt-auto">
               Created by {author}
             </span>

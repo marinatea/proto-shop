@@ -20,6 +20,8 @@ export default function PublicPage() {
           throw new Error('Failed to fetch templates');
         }
         const data: Template[] = await response.json();
+
+        console.log('Fetched templates:', data); // Debugging line
         setTemplates(data);
         setFilteredTemplates(data);
       } catch (error) {
@@ -43,15 +45,17 @@ export default function PublicPage() {
     const filtered = templates.filter((template) => {
       return activeFilters.some((filter) => {
         return (
-          template.useCase?.toLowerCase().includes(filter.toLowerCase()) ||
-          template.framework?.toLowerCase().includes(filter.toLowerCase()) ||
-          template.css?.toLowerCase().includes(filter.toLowerCase()) ||
-          template.database?.toLowerCase().includes(filter.toLowerCase()) ||
-          template.cms?.toLowerCase().includes(filter.toLowerCase()) ||
-          template.authentication
+          template.acf.useCase?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.acf.framework
             ?.toLowerCase()
             .includes(filter.toLowerCase()) ||
-          template.analytics?.toLowerCase().includes(filter.toLowerCase())
+          template.acf.css?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.acf.database?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.acf.cms?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.acf.authentication
+            ?.toLowerCase()
+            .includes(filter.toLowerCase()) ||
+          template.acf.analytics?.toLowerCase().includes(filter.toLowerCase())
         );
       });
     });

@@ -7,16 +7,4 @@ const api = new WooCommerceRestApi({
   version: 'wc/v3'
 });
 
-export const getProducts = async () => {
-  const res = await api.get('products');
-
-  return res.data as Products[];
-};
-
-const getCustomers = async () => {
-  const res = await api.get('customers');
-
-  return res.data as CustomersParams[];
-};
-
 export default api;

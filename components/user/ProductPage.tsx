@@ -17,6 +17,8 @@ export default function ProductPage() {
   const [showDetails, setShowDetails] = useState(false);
   const { data: session } = useSession();
 
+  console.log('Session:', session); // Debugging line
+
   useEffect(() => {
     if (!id) return;
 
@@ -74,9 +76,8 @@ export default function ProductPage() {
         <div className="w-full">
           <img
             src={
-              template.image instanceof File
-                ? URL.createObjectURL(template.image)
-                : template.image
+              template.images[0].src ??
+              'https://via.placeholder.com/500x300.png?text=No+Image'
             }
             alt={template.name}
             width={500}
@@ -91,7 +92,7 @@ export default function ProductPage() {
             <div className="text-gray-500">
               <div className="flex flex-col space-y-2">
                 <p className="text-gray-100">{template.description}</p>
-                <p>Autor: {template.author}</p>
+                <p>Autor: {template.acf.author}</p>
               </div>
               <button
                 className="text-blue-400 hover:text-blue-500 mb-6"
@@ -101,11 +102,11 @@ export default function ProductPage() {
               </button>
               {showDetails && (
                 <div className="mt-2 p-4 bg-gray-800 rounded-lg shadow-lg">
-                  <p>Framework: {template.framework}</p>
-                  <p>CSS: {template.css}</p>
-                  <p>Database: {template.database}</p>
-                  <p>CMS: {template.cms}</p>
-                  <p>Authentication: {template.authentication}</p>
+                  <p>Framework: {template.acf.framework}</p>
+                  <p>CSS: {template.acf.css}</p>
+                  <p>Database: {template.acf.database}</p>
+                  <p>CMS: {template.acf.cms}</p>
+                  <p>Authentication: {template.acf.authentication}</p>
                 </div>
               )}
             </div>

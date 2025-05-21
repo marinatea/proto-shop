@@ -1,5 +1,7 @@
+import api from '@/lib/wooCommerceApi';
 import { NextResponse } from 'next/server';
-import { products } from '../templatesData';
+import { Template } from 'types/types';
+import { WooRestApiEndpoint } from 'woocommerce-rest-ts-api';
 
 export async function GET(
   req: Request,
@@ -14,9 +16,9 @@ export async function GET(
     return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
   }
 
-  const product = products.find(
-    (product) => product.id.toString() === params.id
-  );
+  const product = api.get('products', {
+    id: +params.id
+  });
 
   if (!product) {
     return NextResponse.json({ error: 'Template not found' }, { status: 404 });
@@ -38,22 +40,35 @@ export async function PUT(
 
   const updatedProduct = await req.json();
 
-  if (!updatedProduct.name || !updatedProduct.price || !updatedProduct.author) {
+  if (
+    !updatedProduct.name ||
+    !updatedProduct.acf.price ||
+    !updatedProduct.acf.author
+  ) {
     return NextResponse.json(
       { error: 'Name, price, and author are required!' },
       { status: 400 }
     );
   }
 
-  const productIndex = products.findIndex(
-    (product) => product.id.toString() === id
-  );
+  try {
+    const response = await api.put<WooRestApiEndpoint>(
+      'products',
+      updatedProduct,
+      {
+        id: +id
+      }
+    );
 
-  if (productIndex === -1) {
-    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+    if (!response) {
+      return NextResponse.json(
+        { error: 'Template not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(response.data as Template);
+  } catch (error) {
+    console.error('Error fetching product:', error);
   }
-
-  products[productIndex] = { ...products[productIndex], ...updatedProduct };
-
-  return NextResponse.json(products[productIndex], { status: 200 });
 }

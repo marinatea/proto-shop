@@ -19,6 +19,24 @@ export type Template = {
   id: number;
   name: string;
   description: string;
+  acf: TemplateExtraData;
+  price: string;
+  availableAt: string;
+  images: ImageData[];
+};
+
+export interface FilterItem {
+  name: string;
+  subfilters: string[];
+}
+
+export interface ImageData {
+  src: string;
+  name: string;
+  alt: string;
+}
+
+export interface TemplateExtraData {
   author: string;
   demoLink: string;
   framework: string;
@@ -28,12 +46,4 @@ export type Template = {
   authentication: string;
   analytics: string;
   useCase: string;
-  price: string;
-  availableAt: string;
-  image: string | File;
-};
-
-export interface FilterItem {
-  name: string;
-  subfilters: string[];
 }
