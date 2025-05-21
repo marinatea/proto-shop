@@ -17,8 +17,6 @@ export default function ProductPage() {
   const [showDetails, setShowDetails] = useState(false);
   const { data: session } = useSession();
 
-  console.log('Session:', session); // Debugging line
-
   useEffect(() => {
     if (!id) return;
 
@@ -134,7 +132,7 @@ export default function ProductPage() {
             </div>
 
             <a
-              href={template.demoLink}
+              href={template.acf.demoLink}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-block text-blue-400 hover:text-blue-500"
@@ -143,7 +141,7 @@ export default function ProductPage() {
             </a>
 
             <div className="mt-6">
-              {session?.user?.name === template.author && (
+              {session?.user?.name === template.acf.author && (
                 <Link href={`/user/${session.user.name}/products/${id}/edit`}>
                   <Button variant="secondary">Edit Product</Button>
                 </Link>

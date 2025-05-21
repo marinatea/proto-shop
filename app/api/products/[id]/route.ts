@@ -16,7 +16,7 @@ export async function GET(
     return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
   }
 
-  const product = api.get('products', {
+  const product = await api.get('products', {
     id: +params.id
   });
 
@@ -24,7 +24,7 @@ export async function GET(
     return NextResponse.json({ error: 'Template not found' }, { status: 404 });
   }
 
-  return NextResponse.json(product);
+  return NextResponse.json(product.data as Template);
 }
 
 export async function PUT(
