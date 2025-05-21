@@ -1,7 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
 import { getSession } from 'next-auth/react';
-import { getToken } from './wooCommerceApi';
 
 export const authOptions: NextAuthOptions = {
   providers: [

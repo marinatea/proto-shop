@@ -11,7 +11,7 @@ const TemplateCard = ({
   name,
   description,
   images,
-  acf: { author, demoLink }
+  acf: { author, demo_link: demoLink }
 }: Template) => {
   const { data: session } = useSession();
 

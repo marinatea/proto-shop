@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { username, password } = body;
+  const { email, password } = body;
 
   try {
     const res = await fetch(
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          username,
+          email,
           password,
           AUTH_KEY: process.env.SIMPLE_JWT_SECRET_KEY
         })

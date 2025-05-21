@@ -38,12 +38,12 @@ export interface ImageData {
 
 export interface TemplateExtraData {
   author: string;
-  demoLink: string;
+  demo_link: string;
   framework: string;
   css: string;
   database: string;
   cms: string;
   authentication: string;
   analytics: string;
-  useCase: string;
+  use_case: string;
 }

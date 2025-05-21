@@ -21,7 +21,6 @@ export default function PublicPage() {
         }
         const data: Template[] = await response.json();
 
-        console.log('Fetched templates:', data); // Debugging line
         setTemplates(data);
         setFilteredTemplates(data);
       } catch (error) {
@@ -44,8 +43,10 @@ export default function PublicPage() {
 
     const filtered = templates.filter((template) => {
       return activeFilters.some((filter) => {
+        console.log('Filter:', template.acf);
+
         return (
-          template.acf.useCase?.toLowerCase().includes(filter.toLowerCase()) ||
+          template.acf.use_case?.toLowerCase().includes(filter.toLowerCase()) ||
           template.acf.framework
             ?.toLowerCase()
             .includes(filter.toLowerCase()) ||
@@ -59,6 +60,10 @@ export default function PublicPage() {
         );
       });
     });
+
+    console.log('Filtered templates:', filtered);
+    console.log('Active filters:', activeFilters);
+    console.log('All templates:', templates);
 
     setFilteredTemplates(filtered);
   };
