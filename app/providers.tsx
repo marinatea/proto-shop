@@ -1,13 +1,16 @@
 'use client';
 
 import { SessionProvider } from 'next-auth/react';
-import { TooltipProvider } from '@radix-ui/react-tooltip';
+import { Provider as ReduxProvider } from 'react-redux';
 import { ReactNode } from 'react';
+import { store } from './store/store';
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <SessionProvider>
-      <TooltipProvider>{children}</TooltipProvider>
+      <ReduxProvider store={store}>
+        {children}
+      </ReduxProvider>
     </SessionProvider>
   );
 }

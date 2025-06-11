@@ -1,9 +1,12 @@
 'use client';
 import Link from 'next/link';
-import { Template } from 'types/types';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import { Pencil } from 'lucide-react';
+import { Check, CirclePlus, Pencil } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Template } from 'types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from 'app/store/cartSlice';
 
 const TemplateCard = ({
   id,
@@ -11,6 +14,7 @@ const TemplateCard = ({
   description,
   image,
   author,
+  price,
   demoLink
 }: Template) => {
   const { data: session } = useSession();
@@ -19,10 +23,39 @@ const TemplateCard = ({
     ? `/user/user/products/${id}`
     : `/products/${id}`;
 
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state: any) => state.cart.items);
+
+  const isInCart = cartItems.some((item: any) => item.id === id);
+  const isOwner = session?.user?.name === author;
+
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col h-full">
       <div className="relative">
-        {session?.user?.name === author && (
+        {!isOwner && !isInCart && (
+          <button
+            onClick={() => {
+              dispatch(
+                addToCart({
+                  id,
+                  title: name,
+                  price: price,
+                  quantity: 1,
+                  image: typeof image === 'string' ? image : ''
+                })
+              );
+            }}
+            className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
+          >
+            <CirclePlus className="w-5 h-5" />
+          </button>
+        )}
+        {!isOwner && isInCart && (
+          <div className="absolute top-2 right-2 text-green-500 z-10">
+            <Check className="w-5 h-5" />
+          </div>
+        )}{' '}
+        {isOwner && (
           <Link
             href={`/user/user/products/${id}/edit`}
             className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
@@ -67,6 +100,22 @@ const TemplateCard = ({
           Demo
         </a>
       )}
+      {/* <Button
+        className="text-xl w-full mt-4"
+        onClick={() => {
+          dispatch(
+            addToCart({
+              id: template.id,
+              title: template.name,
+              price: template.price,
+              quantity: 1,
+              image: typeof template.image === 'string' ? template.image : ''
+            })
+          );
+        }}
+      >
+        Add to 🛒
+      </Button> */}
     </div>
   );
 };

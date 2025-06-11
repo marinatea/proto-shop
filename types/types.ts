@@ -30,10 +30,22 @@ export type Template = {
   useCase: string;
   price: string;
   availableAt: string;
-  image: string | File;
+  image?: string | File;
 };
 
 export interface FilterItem {
   name: string;
   subfilters: string[];
+}
+
+export interface CartItem {
+  id: number;
+  title: string;
+  price: string;
+  quantity: number;
+  image?: string;
+}
+
+export interface CartState {
+  items: CartItem[];
 }

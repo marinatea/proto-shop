@@ -6,9 +6,20 @@ import User from '../ui/user';
 import Menu from '../public-page/menu';
 import { ShoppingCart } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store/store';
 
 const Header = () => {
   const { data: session } = useSession();
+  const role = session?.user?.role ?? 'user';
+
+  const cartItemsCount = useSelector((state: RootState) =>
+    state.cart.items.reduce(
+      (sum: number, item: { quantity: number }) => sum + item.quantity,
+      0
+    )
+  );
+
   return (
     <header className="shadow-lg border-b ">
       <div className=" mx-auto flex items-center justify-start py-4 px-6">
@@ -39,8 +50,16 @@ const Header = () => {
             Dashboard
           </Link>
           {session?.user && (
-            <Link href="/cart" className="hover:text-gray-400 transition">
+            <Link
+              href="/user/user/cart"
+              className="relative hover:text-gray-400 transition"
+            >
               <ShoppingCart className="w-6 h-6" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1">
+                  {cartItemsCount}
+                </span>
+              )}
             </Link>
           )}
 

@@ -8,6 +8,8 @@ import Spinner from '@/components/shared/spinner';
 import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'app/store/cartSlice';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -16,6 +18,8 @@ export default function ProductPage() {
   const [likes, setLikes] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
   const { data: session } = useSession();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!id) return;
@@ -150,9 +154,23 @@ export default function ProductPage() {
             </div>
           </div>
           {session?.user && (
-            <Link href={`/user/user/products/${id}/basket`}>
-              <Button className="text-xl w-full">Add to 🛒</Button>
-            </Link>
+            <Button
+              className="text-xl w-full mt-4"
+              onClick={() => {
+                dispatch(
+                  addToCart({
+                    id: template.id,
+                    title: template.name,
+                    price: template.price,
+                    quantity: 1,
+                    image:
+                      typeof template.image === 'string' ? template.image : ''
+                  })
+                );
+              }}
+            >
+              Add to 🛒
+            </Button>
           )}
         </div>
       </div>
