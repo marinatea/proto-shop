@@ -30,7 +30,9 @@ const TemplateCard = ({
             <Pencil className="w-5 h-5" />
           </Link>
         )}
+      </div>
 
+      <Link href={productLink} passHref>
         {image ? (
           <Image
             src={typeof image === 'string' ? image : URL.createObjectURL(image)}
@@ -44,9 +46,6 @@ const TemplateCard = ({
             <span>No Image</span>
           </div>
         )}
-      </div>
-
-      <Link href={productLink} passHref>
         <div className="cursor-pointer flex-grow">
           <div className="p-4 flex flex-col flex-grow gap-4">
             <h3 className="text-xl font-semibold">{name}</h3>
