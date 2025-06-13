@@ -7,14 +7,6 @@ export const authOptions: NextAuthOptions = {
     GitHubProvider({
       clientId: process.env.AUTH_GITHUB_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-      authorization: {
-        params: {
-          redirect_uri:
-            process.env.NODE_ENV === 'production'
-              ? 'https://proto-shop-five.vercel.app/api/auth/callback/github'
-              : 'http://localhost:3000/api/auth/callback/github'
-        }
-      }
     })
   ],
   pages: {
