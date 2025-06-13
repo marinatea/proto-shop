@@ -6,7 +6,7 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GitHubProvider({
       clientId: process.env.AUTH_GITHUB_ID!,
-      clientSecret: process.env.AUTH_SECRET!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
       authorization: {
         params: {
           redirect_uri:
