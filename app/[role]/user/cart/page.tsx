@@ -25,9 +25,9 @@ export default function CartPage() {
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">Koszyk</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Your orders</h1>
       {cartItems.length === 0 ? (
-        <p className="text-center text-gray-600">Koszyk jest pusty.</p>
+        <p className="text-center text-gray-600">You don't have orders.</p>
       ) : (
         <div className="space-y-6">
           {cartItems.map((item) => (
@@ -72,25 +72,25 @@ export default function CartPage() {
                   onClick={() => dispatch(removeFromCart(String(item.id)))}
                   className="text-red-600 hover:text-red-800 text-sm font-semibold"
                 >
-                  Usuń
+                  Delete
                 </button>
               </div>
             </div>
           ))}
           <div className="mt-8 border-t pt-4 flex justify-between items-center">
-            <p className="text-2xl font-bold">Suma: {total.toFixed(2)} zł</p>
+            <p className="text-2xl font-bold">Total: {total.toFixed(2)} zł</p>
             <div className="space-x-4">
               <button
                 onClick={() => dispatch(clearCart())}
                 className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                Wyczyść koszyk
+                Delete all
               </button>
               <button
                 onClick={handlePayment}
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                Przejdź do płatności
+                Go to payment
               </button>
             </div>
           </div>
