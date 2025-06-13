@@ -24,7 +24,7 @@ export default function CartPage() {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-6 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Your orders</h1>
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-600">You don't have orders.</p>
