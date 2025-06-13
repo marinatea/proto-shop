@@ -51,7 +51,7 @@ const TemplateCard = ({
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col h-full">
       <div className="relative">
-        {!isOwner && (
+        {!isOwner && session?.user && (
           <div className="absolute top-2 right-2 z-10 flex items-center justify-center transition-all duration-900 ease-in-out">
             <button
               onClick={handleAddToCart}
