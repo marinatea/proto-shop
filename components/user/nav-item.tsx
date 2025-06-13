@@ -3,6 +3,7 @@
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import clsx from 'clsx';
@@ -21,6 +22,7 @@ export function NavItem({
   const pathname = usePathname();
 
   return (
+    <TooltipProvider>
     <Tooltip>
       <TooltipTrigger asChild>
         <Link
@@ -37,6 +39,7 @@ export function NavItem({
         </Link>
       </TooltipTrigger>
       <TooltipContent side="right">{label}</TooltipContent>
-    </Tooltip>
+      </Tooltip>
+      </TooltipProvider>
   );
 }

@@ -4,9 +4,6 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { Template } from 'types/types';
 import { SearchInput } from '../../../components/user/search';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
-import { Home, ShoppingCart, LineChart, PanelLeft } from 'lucide-react';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,9 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb';
-import { NavItem } from '../../../components/admin/nav-item';
 import Link from 'next/link';
-import { Settings } from '../../../components/ui/settings';
 import TemplateCard from '@/components/public-page/templateCard';
 import { products } from 'app/api/products/templatesData';
 import NewProductModal from '@/components/user/newProductModal';
@@ -80,7 +75,6 @@ export default function UserDashboard() {
   return (
     <div className="min-h-screen flex">
       <Nav />
-
       <div className="flex-1 p-8 justify-between">
         <header className="sticky top-0 z-30 flex items-center gap-16 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <DashboardBreadcrumb />
