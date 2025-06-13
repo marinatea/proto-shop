@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Template } from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from 'app/store/cartSlice';
+import { useState } from 'react';
 
 const TemplateCard = ({
   id,
@@ -28,39 +29,59 @@ const TemplateCard = ({
 
   const isInCart = cartItems.some((item: any) => item.id === id);
   const isOwner = session?.user?.name === author;
+  const [showCheck, setShowCheck] = useState(false);
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id,
+        title: name,
+        price,
+        quantity: 1,
+        image: typeof image === 'string' ? image : ''
+      })
+    );
+
+    setShowCheck(true);
+    setTimeout(() => {
+      setShowCheck(false);
+    }, 1500);
+  };
 
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col h-full">
       <div className="relative">
-        {!isOwner && !isInCart && (
-          <button
-            onClick={() => {
-              dispatch(
-                addToCart({
-                  id,
-                  title: name,
-                  price: price,
-                  quantity: 1,
-                  image: typeof image === 'string' ? image : ''
-                })
-              );
-            }}
-            className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
-          >
-            <CirclePlus className="w-5 h-5" />
-          </button>
-        )}
-        {!isOwner && isInCart && (
-          <div className="absolute top-2 right-2 text-green-500 z-10">
-            <Check className="w-5 h-5" />
+        {!isOwner && (
+          <div className="absolute top-2 right-2 z-10 flex items-center justify-center transition-all duration-900 ease-in-out">
+            <button
+              onClick={handleAddToCart}
+              className={`transition-all duration-700 ease-in-out transform ${
+                showCheck
+                  ? 'opacity-0 scale-95 pointer-events-none'
+                  : 'opacity-100 scale-100 pointer-events-auto'
+              } text-gray-500 hover:text-black`}
+            >
+              <CirclePlus className="w-10 h-10" />
+            </button>
+
+            <div
+              className={`absolute transition-all duration-700 ease-in-out transform ${
+                showCheck
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-95 pointer-events-none'
+              } text-green-500`}
+            >
+              <Check className="w-10 h-10" />
+            </div>
           </div>
-        )}{' '}
+        )}
+
         {isOwner && (
           <Link
             href={`/user/user/products/${id}/edit`}
             className="absolute top-2 right-2 text-gray-500 hover:text-black z-10"
           >
-            <Pencil className="w-5 h-5" />
+            <Pencil className="w-10 h-10" />
           </Link>
         )}
       </div>
@@ -100,22 +121,6 @@ const TemplateCard = ({
           Demo
         </a>
       )}
-      {/* <Button
-        className="text-xl w-full mt-4"
-        onClick={() => {
-          dispatch(
-            addToCart({
-              id: template.id,
-              title: template.name,
-              price: template.price,
-              quantity: 1,
-              image: typeof template.image === 'string' ? template.image : ''
-            })
-          );
-        }}
-      >
-        Add to 🛒
-      </Button> */}
     </div>
   );
 };

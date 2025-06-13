@@ -1,6 +1,6 @@
 // app/[role]/user/layout.tsx
 
-import { Providers } from 'app/providers';
+import Providers from 'app/providers';
 
 export default function UserLayout({
   children
