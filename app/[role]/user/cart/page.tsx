@@ -1,6 +1,11 @@
 'use client';
 
-import { clearCart, removeFromCart } from 'app/store/cartSlice';
+import {
+  clearCart,
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity
+} from 'app/store/cartSlice';
 import { RootState } from 'app/store/store';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -13,39 +18,81 @@ export default function CartPage() {
     0
   );
 
+  const handlePayment = () => {
+    // Tu możesz dodać logikę przejścia do płatności
+    alert('Przejście do płatności - do zaimplementowania');
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Koszyk</h1>
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-center">Koszyk</h1>
       {cartItems.length === 0 ? (
-        <p>Koszyk jest pusty.</p>
+        <p className="text-center text-gray-600">Koszyk jest pusty.</p>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex justify-between border-b pb-2">
-              <div>
-                <img src={item.image} alt="img" />
-                <p className="font-semibold">{item.title}</p>
-                <p>Ilość: {item.quantity}</p>
+            <div
+              key={item.id}
+              className="flex items-center justify-between border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-center space-x-4">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-20 h-20 object-cover rounded-md border"
+                />
+                <div>
+                  <p className="font-semibold text-lg">{item.title}</p>
+                  <div className="flex items-center space-x-2 mt-1">
+                    <button
+                      onClick={() =>
+                        dispatch(decrementQuantity(String(item.id)))
+                      }
+                      className="w-6 h-6 bg-gray-700 rounded hover:bg-gray-600 flex items-center justify-center font-bold select-none"
+                      aria-label="Zmniejsz ilość"
+                    >
+                      -
+                    </button>
+                    <span className="text-sm">{item.quantity}</span>
+                    <button
+                      onClick={() =>
+                        dispatch(incrementQuantity(String(item.id)))
+                      }
+                      className="w-6 h-6 bg-gray-700 rounded hover:bg-gray-600 flex items-center justify-center font-bold select-none"
+                      aria-label="Zwiększ ilość"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p>{item.price} zł</p>
+              <div className="text-right space-y-2">
+                <p className="text-lg font-medium">{item.price} zł</p>
                 <button
                   onClick={() => dispatch(removeFromCart(String(item.id)))}
-                  className="text-red-500 text-sm"
+                  className="text-red-600 hover:text-red-800 text-sm font-semibold"
                 >
                   Usuń
                 </button>
               </div>
             </div>
           ))}
-          <div className="mt-4">
-            <p className="font-bold">Suma: {total.toFixed(2)} zł</p>
-            <button
-              onClick={() => dispatch(clearCart())}
-              className="mt-2 bg-red-600 text-white px-4 py-2 rounded"
-            >
-              Wyczyść koszyk
-            </button>
+          <div className="mt-8 border-t pt-4 flex justify-between items-center">
+            <p className="text-2xl font-bold">Suma: {total.toFixed(2)} zł</p>
+            <div className="space-x-4">
+              <button
+                onClick={() => dispatch(clearCart())}
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Wyczyść koszyk
+              </button>
+              <button
+                onClick={handlePayment}
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Przejdź do płatności
+              </button>
+            </div>
           </div>
         </div>
       )}
