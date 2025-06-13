@@ -11,7 +11,7 @@ export const authOptions: NextAuthOptions = {
         params: {
           redirect_uri:
             process.env.NODE_ENV === 'production'
-              ? 'https://proto-shop-5m88v594p-marinateas-projects.vercel.app/api/auth/callback/github'
+              ? 'https://proto-shop-five.vercel.app/api/auth/callback/github'
               : 'http://localhost:3000/api/auth/callback/github'
         }
       }
