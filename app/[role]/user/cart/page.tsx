@@ -19,7 +19,6 @@ export default function CartPage() {
   );
 
   const handlePayment = () => {
-    // Tu możesz dodać logikę przejścia do płatności
     alert('Przejście do płatności - do zaimplementowania');
   };
 
