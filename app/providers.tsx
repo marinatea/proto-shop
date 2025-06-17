@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { makeStore } from './store/store';
+import { SessionProvider } from 'next-auth/react';
+import Header from '@/components/shared/header';
+import Spinner from '@/components/shared/spinner';
 
 const loadCartFromLocalStorage = () => {
   if (typeof window === 'undefined') return [];
@@ -17,12 +20,20 @@ const loadCartFromLocalStorage = () => {
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [store, setStore] = useState<any>(null);
+  const [showHeader, setShowHeader] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowHeader(true);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const preloadedState = {
       cart: {
-        items: loadCartFromLocalStorage(),
-      },
+        items: loadCartFromLocalStorage()
+      }
     };
 
     const clientStore = makeStore(preloadedState);
@@ -37,5 +48,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   if (!store) return null;
 
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <SessionProvider>
+        {showHeader ? <Header /> : <Spinner />}
+        {children}
+      </SessionProvider>
+    </Provider>
+  );
 }

@@ -9,11 +9,8 @@ export default async function ProductsPage(props: {
 }) {
   const searchParams = await props.searchParams;
   const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-  const { products, newOffset, totalProducts } = await getProducts(
-    search,
-    Number(offset)
-  );
+  const offset = Number(searchParams.offset ?? 0);
+  const products = await getProducts(6, Math.floor(offset / 6) + 1);
 
   return (
     <Tabs defaultValue="all">
@@ -44,8 +41,8 @@ export default async function ProductsPage(props: {
       <TabsContent value="all">
         <ProductsTable
           products={products}
-          offset={newOffset ?? 0}
-          totalProducts={totalProducts}
+          offset={offset}
+          totalProducts={products.length}
         />
       </TabsContent>
     </Tabs>
