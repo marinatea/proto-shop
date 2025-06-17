@@ -14,16 +14,38 @@ import {
 } from '@/components/ui/breadcrumb';
 import Link from 'next/link';
 import TemplateCard from '@/components/public-page/templateCard';
-import { products } from 'app/api/products/templatesData';
 import NewProductModal from '@/components/user/newProductModal';
 import Nav from '@/components/user/Nav';
+import { getProducts } from '@/lib/db';
+import Spinner from '@/components/shared/spinner';
 
-export default function UserDashboard() {
+export default function UserDashboard({
+  params
+}: {
+  params: { role: string };
+}) {
   const { data: session } = useSession();
+  const [products, setProducts] = useState<Template[]>([]);
   const [prod, setProd] = useState<Template[]>([]);
+  const [loading, setLoading] = useState(true);
+  const role = params.role;
 
   useEffect(() => {
-    if (session?.user?.name) {
+    async function fetchProducts() {
+      try {
+        const allProducts = await getProducts();
+        setProducts(allProducts);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setLoading(false);
+      }
+    }
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    if (!loading && session?.user?.name) {
       const userProducts = products
         .filter((product) => product.author === session.user.name)
         .map((product) => ({
@@ -33,7 +55,7 @@ export default function UserDashboard() {
         }));
       setProd(userProducts);
     }
-  }, [session]);
+  }, [loading, session, products]);
 
   const handleAddProduct = (product: {
     name: string;
@@ -72,12 +94,15 @@ export default function UserDashboard() {
     }
   };
 
+  if (loading) return <div>Loading...</div>;
+  console.log('params.role:', params.role);
+
   return (
     <div className="min-h-screen flex">
       <Nav />
       <div className="flex-1 p-8 justify-between">
         <header className="sticky top-0 z-30 flex items-center gap-16 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-          <DashboardBreadcrumb />
+          {/* <DashboardBreadcrumb /> */}
           <div className="ml-auto flex items-center gap-4">
             <SearchInput />
           </div>
@@ -102,26 +127,26 @@ export default function UserDashboard() {
   );
 }
 
-function DashboardBreadcrumb() {
-  return (
-    <Breadcrumb className="hidden md:flex">
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/user/user">User Panel</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/user/orders">Orders</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Your Products</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  );
-}
+// function DashboardBreadcrumb() {
+//   return (
+//     <Breadcrumb className="hidden md:flex">
+//       <BreadcrumbList>
+//         <BreadcrumbItem>
+//           <BreadcrumbLink asChild>
+//             <Link href="/user/user">User Panel</Link>
+//           </BreadcrumbLink>
+//         </BreadcrumbItem>
+//         <BreadcrumbSeparator />
+//         <BreadcrumbItem>
+//           <BreadcrumbLink asChild>
+//             <Link href="/user/orders">Orders</Link>
+//           </BreadcrumbLink>
+//         </BreadcrumbItem>
+//         <BreadcrumbSeparator />
+//         <BreadcrumbItem>
+//           <BreadcrumbPage>Your Products</BreadcrumbPage>
+//         </BreadcrumbItem>
+//       </BreadcrumbList>
+//     </Breadcrumb>
+//   );
+// }

@@ -1,59 +1,46 @@
 import { NextResponse } from 'next/server';
-import { products } from '../templatesData';
+import { getProductById } from '@/lib/db';
+import { updateProductById } from '@/lib/db';
 
-export async function GET(
-  req: Request,
-  context: { params: Promise<{ id: string }> }
-) {
-  console.log('Raw Context:', context);
-
-  const params = await context.params;
-  console.log('Resolved Params:', params);
-
-  if (!params?.id) {
-    return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
-  }
-
-  const product = products.find(
-    (product) => product.id.toString() === params.id
-  );
-
-  if (!product) {
-    return NextResponse.json({ error: 'Template not found' }, { status: 404 });
-  }
-
-  return NextResponse.json(product);
-}
-
-export async function PUT(
-  req: Request,
-  context: { params: Promise<{ id: string }> }
-) {
-  const params = await context.params;
-  const { id } = params;
+export async function GET(req: Request, context: { params: { id: string } }) {
+  const { id } = context.params;
 
   if (!id) {
     return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
   }
 
-  const updatedProduct = await req.json();
+  try {
+    const product = await getProductById(Number(id));
+    return NextResponse.json(product);
+  } catch (error) {
+    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+  }
+}
 
-  if (!updatedProduct.name || !updatedProduct.price || !updatedProduct.author) {
+export async function PUT(req: Request, context: { params: { id: string } }) {
+  const { id } = context.params;
+
+  if (!id) {
+    return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
+  }
+
+  const updatedData = await req.json();
+
+  // Opcjonalnie waliduj pola, które są wymagane, np. name, price, author
+  if (!updatedData.name || !updatedData.price || !updatedData.author) {
     return NextResponse.json(
       { error: 'Name, price, and author are required!' },
       { status: 400 }
     );
   }
 
-  const productIndex = products.findIndex(
-    (product) => product.id.toString() === id
-  );
-
-  if (productIndex === -1) {
-    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+  try {
+    const updatedProduct = await updateProductById(Number(id), updatedData);
+    return NextResponse.json(updatedProduct, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Failed to update product' },
+      { status: 500 }
+    );
   }
-
-  products[productIndex] = { ...products[productIndex], ...updatedProduct };
-
-  return NextResponse.json(products[productIndex], { status: 200 });
 }

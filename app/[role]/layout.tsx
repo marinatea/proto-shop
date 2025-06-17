@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default async function RoleLayout({ params, children }: Props) {
-  const { role } = await params;
+  const { role } = params;
 
   return (
     <main className="flex min-h-screen w-full bg-muted/40">

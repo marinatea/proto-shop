@@ -8,10 +8,8 @@ export default function UserLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Providers>
-      <main className="flex flex-col min-h-screen w-full bg-muted/40">
-        <div className="flex-1">{children}</div>
-      </main>
-    </Providers>
+    <main className="flex flex-col min-h-screen w-full bg-muted/40">
+      <div className="flex-1">{children}</div>
+    </main>
   );
 }

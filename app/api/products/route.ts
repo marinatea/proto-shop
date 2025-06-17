@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
-import { products } from './templatesData';
+import { getProducts } from '@/lib/db';
+import { getProductById } from '@/lib/db';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const query = url.searchParams.get('q')?.toLowerCase() || '';
   const id = url.searchParams.get('id');
 
+  const products = await getProducts();
+
   if (id) {
-    const template = products.find(
-      (template) => template.id.toString() === id
-    );
+    const template = products.find((template) => template.id.toString() === id);
     if (template) {
       return NextResponse.json(template);
     } else {
