@@ -1,15 +1,7 @@
 const WooCommerceRestApi = require('@woocommerce/woocommerce-rest-api').default;
-console.log('WOOCOMMERCE_STORE_URL:', process.env.WOOCOMMERCE_STORE_URL);
-console.log('WOOCOMMERCE_CONSUMER_KEY:', process.env.WOOCOMMERCE_CONSUMER_KEY);
-console.log('WOOCOMMERCE_CONSUMER_SECRET:', process.env.WOOCOMMERCE_CONSUMER_SECRET);
-
 const storeUrl = process.env.WOOCOMMERCE_STORE_URL;
 const consumerKey = process.env.WOOCOMMERCE_CONSUMER_KEY;
 const consumerSecret = process.env.WOOCOMMERCE_CONSUMER_SECRET!;
-
-console.log('storeUrl:', storeUrl);
-console.log('consumerKey:', consumerKey);
-console.log('consumerSecret:', consumerSecret);
 
 if (!storeUrl || !consumerKey || !consumerSecret) {
   throw new Error('Missing WooCommerce environment variables');
