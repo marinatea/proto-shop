@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { File, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getProducts } from '@/lib/db';
+import { getProducts } from '@/lib/woocommerce';
 import { ProductsTable } from '../../../components/admin/products-table';
 
 export default async function ProductsPage(props: {

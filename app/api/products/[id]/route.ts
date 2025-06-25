@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getProductById } from '@/lib/db';
-import { updateProductById } from '@/lib/db';
+import { getProductById } from '@/lib/woocommerce';
+import { updateProductById } from '@/lib/woocommerce';
 
 export async function GET(req: Request, context: { params: { id: string } }) {
   const { id } = context.params;
