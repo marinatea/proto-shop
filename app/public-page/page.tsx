@@ -11,6 +11,7 @@ export default function PublicPage() {
   const { data: session, status } = useSession();
   const [templates, setTemplates] = useState<Template[]>([]);
   const [filteredTemplates, setFilteredTemplates] = useState<Template[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -24,6 +25,8 @@ export default function PublicPage() {
         setFilteredTemplates(data);
       } catch (error) {
         console.error('Error fetching templates:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -59,7 +62,7 @@ export default function PublicPage() {
     setFilteredTemplates(filtered);
   };
 
-  if (status === 'loading') {
+  if (status === 'loading' || isLoading) {
     return <Spinner />;
   }
 
