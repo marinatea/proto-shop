@@ -1,3 +1,4 @@
+//app/[role]/user/cart/page.tsx
 'use client';
 
 import {
@@ -18,9 +19,9 @@ export default function CartPage() {
     0
   );
 
-  const handlePayment = () => {
-    alert('Przejście do płatności - do zaimplementowania');
-  };
+  // const handlePayment = () => {
+  //   alert('Przejście do płatności - do zaimplementowania');
+  // };
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
@@ -85,8 +86,17 @@ export default function CartPage() {
               >
                 Delete all
               </button>
-              <button
+              {/* <button
                 onClick={handlePayment}
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Go to payment
+              </button> */}
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    'https://bpheadlessb328.wpenginepowered.com/checkout')
+                }
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 Go to payment
