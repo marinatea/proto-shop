@@ -27,6 +27,7 @@ export async function GET(req: Request) {
       template.description.toLowerCase().includes(query) ||
       template.author.toLowerCase().includes(query)
   );
+  
 
   return NextResponse.json(filteredTemplates);
 }
