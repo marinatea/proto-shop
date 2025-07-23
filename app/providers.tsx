@@ -48,11 +48,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   if (!storeRef.current) return null;
 
   return (
-    <Provider store={storeRef.current}>
-      <SessionProvider>
+    <SessionProvider>
+      <Provider store={storeRef.current}>
         {showHeader ? <Header /> : <Spinner />}
         {children}
-      </SessionProvider>
-    </Provider>
+      </Provider>
+    </SessionProvider>
   );
 }
