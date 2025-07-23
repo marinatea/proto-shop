@@ -2,8 +2,9 @@ import { NextResponse } from 'next/server';
 import { getProductById } from '@/lib/woocommerce';
 import { updateProductById } from '@/lib/woocommerce';
 
-export async function GET(req: Request, context: { params: { id: string } }) {
-  const { id } = context.params;
+export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
+  const params = await context.params;
+  const { id } = params;
 
   if (!id) {
     return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
@@ -17,8 +18,10 @@ export async function GET(req: Request, context: { params: { id: string } }) {
   }
 }
 
-export async function PUT(req: Request, context: { params: { id: string } }) {
-  const { id } = context.params;
+export async function PUT(req: Request, context: { params: Promise<{ id: string }> }) {
+    const params = await context.params;
+
+  const { id } = params;
 
   if (!id) {
     return NextResponse.json({ error: 'Missing ID' }, { status: 400 });
@@ -26,7 +29,6 @@ export async function PUT(req: Request, context: { params: { id: string } }) {
 
   const updatedData = await req.json();
 
-  // Opcjonalnie waliduj pola, które są wymagane, np. name, price, author
   if (!updatedData.name || !updatedData.price || !updatedData.author) {
     return NextResponse.json(
       { error: 'Name, price, and author are required!' },
