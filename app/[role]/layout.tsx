@@ -9,15 +9,15 @@ type Props = {
 };
 
 export default async function RoleLayout({ params, children }: Props) {
-  const { role } = await params;
-
+  const resolvedParams = await params;
+  const { role } = resolvedParams;
   return (
     <main className="flex min-h-screen w-full bg-muted/40">
       <div className="flex flex-col items-start justify-start w-full">
         {role === 'user' ? (
-          <UserLayout>{children}</UserLayout>
+          <UserLayout params={resolvedParams}>{children}</UserLayout>
         ) : role === 'admin' ? (
-          <AdminLayout>{children}</AdminLayout>
+          <AdminLayout params={resolvedParams}>{children}</AdminLayout>
         ) : (
           <div>Access Denied</div>
         )}

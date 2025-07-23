@@ -28,15 +28,18 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import { NavItem } from '../../../components/admin/nav-item';
 import { SearchInput } from '../../../components/user/search';
-import { Providers } from 'app/providers';
 import { User } from '@/components/ui/user';
 import Nav from '@/components/user/Nav';
+import Providers from 'app/providers';
 
-export default function AdminLayout({
-  children
-}: {
+type Props = {
+  params: { role: string };
   children: React.ReactNode;
-}) {
+};
+
+export default async function AdminLayout({ params, children }: Props) {
+  const resolvedParams = await params;
+  const { role } = resolvedParams;
   return (
     <Providers>
       <main className="flex min-h-screen w-full flex-col bg-muted/40">

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { products } from './templatesData';
+import { getProducts, getProductById } from '@/lib/woocommerce';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -7,18 +7,19 @@ export async function GET(req: Request) {
   const id = url.searchParams.get('id');
 
   if (id) {
-    const template = products.find(
-      (template) => template.id.toString() === id
-    );
-    if (template) {
-      return NextResponse.json(template);
-    } else {
-      return NextResponse.json(
-        { error: 'Template not found' },
-        { status: 404 }
-      );
+    const productId = parseInt(id, 10);
+    if (isNaN(productId)) {
+      return NextResponse.json({ error: 'Invalid product id' }, { status: 400 });
+    }
+    try {
+      const product = await getProductById(productId);
+      return NextResponse.json(product);
+    } catch {
+      return NextResponse.json({ error: 'Template not found' }, { status: 404 });
     }
   }
+
+  const products = await getProducts();
 
   const filteredTemplates = products.filter(
     (template) =>
@@ -26,6 +27,7 @@ export async function GET(req: Request) {
       template.description.toLowerCase().includes(query) ||
       template.author.toLowerCase().includes(query)
   );
+  
 
   return NextResponse.json(filteredTemplates);
 }

@@ -1,8 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Provider } from 'react-redux';
 import { makeStore } from './store/store';
+import { SessionProvider } from 'next-auth/react';
+import Header from '@/components/shared/header';
+import Spinner from '@/components/shared/spinner';
 
 const loadCartFromLocalStorage = () => {
   if (typeof window === 'undefined') return [];
@@ -16,15 +19,15 @@ const loadCartFromLocalStorage = () => {
 };
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const [store, setStore] = useState<any>(null);
+  const storeRef = useRef<any>(null);
+  const [showHeader, setShowHeader] = useState(false);
 
-  useEffect(() => {
+  if (!storeRef.current) {
     const preloadedState = {
       cart: {
-        items: loadCartFromLocalStorage(),
-      },
+        items: loadCartFromLocalStorage()
+      }
     };
-
     const clientStore = makeStore(preloadedState);
 
     clientStore.subscribe(() => {
@@ -32,10 +35,24 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       localStorage.setItem('cartItems', JSON.stringify(state.cart.items));
     });
 
-    setStore(clientStore);
+    storeRef.current = clientStore;
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowHeader(true);
+    }, 1000);
+    return () => clearTimeout(timeout);
   }, []);
 
-  if (!store) return null;
+  if (!storeRef.current) return null;
 
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={storeRef.current}>
+      <SessionProvider>
+        {showHeader ? <Header /> : <Spinner />}
+        {children}
+      </SessionProvider>
+    </Provider>
+  );
 }
